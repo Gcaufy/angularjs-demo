@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#GRUNT-GITHOOKS START
+exec `git rev-parse --show-toplevel`/fe
+
+#GRUNT-GITHOOKS END

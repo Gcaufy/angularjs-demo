@@ -1,0 +1,4 @@
+// Helvetica Neue Thin
+$FranklinGothicBook: FranklinGothicBook;
+
+@include font-face(#{$FranklinGothicBook}, '../fonts/#{$FranklinGothicBook}/#{$FranklinGothicBook}');
