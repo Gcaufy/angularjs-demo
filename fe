@@ -44,7 +44,7 @@ function exec_config() {
 }
 
 function exec_template() {
-	cp "$DIR/index.template" "$DIR/index.html"
+	cp "$DIR/index.template" "$DIR/app/index.html"
 	echo -e "$REDCOLOR Generated index.html.$NOCOLOR"
 }
 
@@ -81,7 +81,7 @@ function func_run() {
 	fi
 
 	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep bower.json`
-	if [[ $DIFF != "" || ! -d "$DIR/vendor" ]]; then
+	if [[ $DIFF != "" || ! -d "$DIR/app/vendor" ]]; then
 		exec_bower
 	fi
 
@@ -96,7 +96,7 @@ function func_run() {
 
 	CHANGES=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep index.template`
 
-	if [[ ! -f "$DIR/index.html" || $CHANGES != "" ]]; then
+	if [[ ! -f "$DIR/app/index.html" || $CHANGES != "" ]]; then
 		exec_template
 	fi
 

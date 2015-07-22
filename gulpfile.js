@@ -28,13 +28,37 @@ var flagJs = false, flagCss = false, flagHtml = false;
 
 
 var options = {
-    js: [
-        'app/app.js',
-        'config/config.js',
-        'config/config-local.js',
-        'app/**/*.js'
-    ]
+    root: './app',
+    index: 'index.html',
+    js: {
+        src: [
+            '!app/vendor/**/*.js',
+            '!app/assets/js/all.*.js',
+            'app/web/index.js',
+            'config/*.js',
+            'app/web/**/*.js'
+        ]
+    },
+    css: {
+        compile: 'app/_sass/style.scss',
+        include: ['app/_sass/'],
+        watch: ['app/_sass/*.scss', 'app/_sass/**/*.scss']
+    },
+    vendor: this.root + '/vendor',
+    hooks: 'hooks/*',
+    html: {}
 };
+
+options.js.dest = options.root + '/assets/js';
+options.js.clean = options.root + '/assets/css/all.*.js';
+options.js.name = 'all.' + hash + '.js';
+options.css.dest = options.root + '/assets/css';
+options.css.clean = options.root + '/assets/css/all.*.css';
+options.css.name = 'all.' + hash + '.css';
+options.vendor = options.root + '/vendor';
+options.html.index = options.root + '/index.html';
+options.html.watch = [options.html.index, 'app/web/modules/**/*.html'];
+
 
 function errorReporter () {
     return map(function (file, cb) {
@@ -54,13 +78,13 @@ function getHash() {
 }
 
 gulp.task('bower', function() {
-    return bower().pipe(gulp.dest('vendor/'));
+    return bower(options.vendor).pipe(gulp.dest(options.vendor));
 });
 gulp.task('githooks', function () {
-    return gulp.src('hooks/*').pipe(chmod(755)).pipe(gulp.dest('.git/hooks/')); 
+    return gulp.src(options.hooks).pipe(chmod(755)).pipe(gulp.dest('.git/hooks/')); 
 });
 gulp.task('jshint', function() {
-  	return gulp.src(options.js)
+  	return gulp.src(options.js.src)
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(map(function (file, cb) {
@@ -76,23 +100,23 @@ gulp.task('jshint', function() {
 
 gulp.task('css', function () {
     flagCss = true;
-    
-    var stream = gulp.src('app/assets/sass/style.scss')
-    .pipe(sass(sass({ includePaths : ['app/assets/sass/'] })).on('error', sass.logError))
-    .pipe(rename('all.' + hash + '.css'));
-    del(['app/assets/css/all.*.css']);
-    return stream.pipe(gulp.dest('app/assets/css/'));
+
+    var stream = gulp.src(options.css.compile)
+    .pipe(sass({includePaths: options.css.include}).on('error', sass.logError))
+    .pipe(rename(options.css.name));
+    del(options.css.clean);
+    return stream.pipe(gulp.dest(options.css.dest));
 });
 
 gulp.task('js', function () {
     flagJs = true;
-  	var stream = gulp.src(options.js)
+  	var stream = gulp.src(options.js.src)
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(errorReporter())
-        .pipe(concat('all' + '.' + hash + '.js'));
-    del(['dist/all.*.js']);
-  	stream.pipe(gulp.dest('dist'));
+        .pipe(concat(options.js.name));
+    del(options.js.clean);
+  	stream.pipe(gulp.dest(options.js.dest));
 });
 
 gulp.task('html', function () {
@@ -101,7 +125,7 @@ gulp.task('html', function () {
 
 
 gulp.task('gen', function(){
-    var stream = gulp.src(['index.html']);
+    var stream = gulp.src(options.html.index);
     if (flagJs) {
         stream = stream.pipe(replace(/all\.[a-z0-9]{7}\.js/g, 'all' + '.' + hash + '.js'));
         flagJs = false;
@@ -114,7 +138,7 @@ gulp.task('gen', function(){
         stream = stream.pipe(replace(/window\.BUILD_HTML_HASH\s\=\s\'[a-z0-9]{7}'/g, "window.BUILD_HTML_HASH = '" + hash + "'"));
         flagHtml = false;
     }
-    stream.pipe(gulp.dest('')).pipe(connect.reload());
+    stream.pipe(gulp.dest(options.root)).pipe(connect.reload());
 });
 
 
@@ -122,16 +146,16 @@ gulp.task('gen', function(){
 gulp.task('minify', function () {
    gulp.src('app.js')
       .pipe(uglify())
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest(options.js.dest))
 });
 
 
 gulp.task('default', ['js', 'css', 'html', 'gen']);
 gulp.task('watch', function () {
     //livereload.listen();
-    gulp.watch(options.js, ['js','gen']);
-    gulp.watch(['app/assets/sass/*.scss', 'app/assets/sass/**/*.scss'], ['css','gen']);
-    gulp.watch(['index.html','app/modules/**/*.html'], ['html','gen']);
+    gulp.watch(options.js.src, ['js','gen']);
+    gulp.watch(options.css.watch, ['css','gen']);
+    gulp.watch(options.html.watch, ['html','gen']);
     gulp.watch('gulpfile.js', ['default']);
 });
 
@@ -139,6 +163,7 @@ gulp.task('watch', function () {
 gulp.task('connect', function() {
     connect.server({
         port: 80,
+        root: options.root,
         livereload: true
     });
 });
