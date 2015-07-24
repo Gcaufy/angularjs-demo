@@ -3,13 +3,251 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />  */
 
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td {
+  padding: 0;
+  margin: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,img {
+  border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+  font-weight: normal;
+  font-style: normal;
+}
+ol,ul {
+  list-style: none;
+}
+caption,th {
+  text-align: left;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+q:before,q:after {
+  content: '';
+}
+abbr,acronym {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  font-size: 17px;
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: "Constantia";
+}
+.clearfix:before,.clearfix:after {
+  content:"";
+  display:table;
+}
+.clearfix:after {
+  clear:both;
+}
+.clearfix {
+  *zoom:1;/*IE/7/6*/
+}
+button, img {
+  border: none;
+}
+button {
+  cursor: pointer;
+}
+
+// import other scss files
+
 @import "utils/variables";
 
 @import "utils/mixin";
 
 @import "utils/fonts";
 
-
 @import "modules/button";
 
-@import "sprite.scss"
+@import "sprite.scss";
+
+// end
+
+
+input:focus, select:focus {
+  outline: none;
+}
+input[type=text], input[type=password], input[type=email], select {
+  width: 270px;
+  height:30px;
+  line-height: 30px;
+  border: 1px solid $light-grey;
+  text-indent: 10px;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  vertical-align: middle;
+  //    padding: 224px 0 198px 0;
+//  background: url("../../assets/img/bg.jpg") center center no-repeat;
+  overflow: hidden;
+
+  >header {
+    height: 224px;
+//    position: absolute;
+    top: 0;
+  }
+  >footer {
+    height: 198px;
+    position: absolute;
+    bottom: 0;
+  }
+  section {
+    width: 100%;
+    height: 100%;
+//    min-height: 840px;
+    padding-bottom: 198px;
+    min-height: 426px;
+//    position: relative;
+    vertical-align: middle;
+    background: url("../../assets/img/bg.jpg") center top no-repeat;
+    overflow: hidden;
+
+    &.home {
+      background: url("../../assets/img/login_bg.jpg") center center no-repeat !important;
+    }
+
+    .container {
+      width: 100%;
+      height: 320px;
+      background: $white;
+      opacity: .8;
+      filter: alpha(opacity=80);
+      position: absolute;
+      top: 50%;
+      margin-top: -160px;
+    }
+  } // end section
+
+  .content {
+    width: 1060px;
+    margin: 0 auto;
+
+    >p {
+      font-size: 24px;
+      color: $yellow;
+      text-align: center;
+
+      &.tips {
+        line-height: 320px;
+        text-transform: uppercase;
+        font-style: italic;
+      }
+    }
+    >ul {
+      >li {
+        padding-right: 160px;
+      }
+    }
+    ul {
+      li {
+        text-align: center;
+        margin-bottom: 20px;
+
+        &.title {
+          padding-right: 0 !important;
+        }
+        &:first-child {
+          margin-top: 20px;
+        }
+
+        >label {
+          font-size: 24px;
+          color: $yellow;
+          width: 240px;
+          text-align: right;
+          display: inline-block;
+        }
+        >p {
+          font-size: 24px;
+          color: $yellow;
+        }
+        &.btn-area {
+          margin-left: 180px;
+        }
+        >ul {
+          >li {
+            margin-bottom: 10px !important;
+          }
+        }
+      } // end li
+    } // end ul
+    &.login {
+      >ul {
+        >li {
+          &:first-child {
+            margin-top: 60px;
+          }
+
+          &.get-pwd {
+            margin-left: 390px;
+
+            >a {
+              color: $yellow;
+              font-size: 18px;
+              text-decoration: underline;
+            }
+          } // end get-pwd
+          &.btn-area {
+            margin-top: 60px;
+          }
+        } // end li
+      } // end ul
+    } // end login
+  } // end content
+  .main {
+      width: 1060px;
+      margin: 196px auto 0 auto;
+      position: relative;
+  }
+  .txt-center {
+    text-align: center !important;
+  }
+  .txt-left {
+    text-align: left !important;
+  }
+  .txt-right {
+    text-align: right !important;
+  }
+
+  .left-sidebar {
+    width: 240px;
+    float: left;
+    margin-top: 140px;
+  }
+  .right-sidebar {
+    width: 790px;
+    float: right;
+  }
+} // end wrapper
+
+.relative {
+  position: relative;
+}
+
+// for demo style
+.demo {
+  position: absolute;
+  background: $white;
+  span {
+    margin: 0 20px;
+    display: inline-block;
+  }
+}
+
+
+
+

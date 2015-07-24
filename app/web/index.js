@@ -4,7 +4,9 @@ window.webapp = angular.module('webapp', ['ui.router',
     'webapp.home',
     'webapp.daypass',
     'webapp.event',
-    'webapp.dependent'
+    'webapp.dependent',
+    'webapp.login',
+    'webapp.account'
 ]);
 
 webapp.config(function($stateProvider, $urlRouterProvider) {
@@ -39,6 +41,5 @@ webapp.factory('htmlCacheClear', function ($q, $window) {
 
 angular.module('webapp.home', ['ngRoute', 'ui.router'])
 .controller('IndexCtrl', function($scope) {
-	debugger;
 	console.log('this is home page');
 });
