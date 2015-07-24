@@ -71,6 +71,8 @@ button {
 
 @import "modules/button";
 
+@import "sprite.scss";
+
 // end
 
 
@@ -90,7 +92,7 @@ input[type=text], input[type=password], input[type=email], select {
   position: relative;
   vertical-align: middle;
   //    padding: 224px 0 198px 0;
-//  background: url("../../assets/images/bg.jpg") center center no-repeat;
+//  background: url("../../assets/img/bg.jpg") center center no-repeat;
   overflow: hidden;
 
   >header {
@@ -111,11 +113,11 @@ input[type=text], input[type=password], input[type=email], select {
     min-height: 426px;
 //    position: relative;
     vertical-align: middle;
-    background: url("../../assets/images/bg.jpg") center top no-repeat;
+    background: url("../../assets/img/bg.jpg") center top no-repeat;
     overflow: hidden;
 
     &.home {
-      background: url("../images/login_bg.jpg") center center no-repeat !important;
+      background: url("../../assets/img/login_bg.jpg") center center no-repeat !important;
     }
 
     .container {
@@ -247,9 +249,5 @@ input[type=text], input[type=password], input[type=email], select {
 }
 
 
-<<<<<<< HEAD:app/_sass/style.scss
-=======
-@import "modules/button";
 
-@import "sprite.scss"
->>>>>>> 6333b4e08fae9a52106a5d37fcef39a3be6f6a44:app/_source/sass/style.scss
+
