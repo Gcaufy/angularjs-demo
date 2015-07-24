@@ -4,7 +4,8 @@ window.webapp = angular.module('webapp', ['ui.router',
     'webapp.home',
     'webapp.daypass',
     'webapp.event',
-    'webapp.dependent'
+    'webapp.dependent',
+    'webapp.account'
 ]);
 
 webapp.config(function($stateProvider, $urlRouterProvider) {

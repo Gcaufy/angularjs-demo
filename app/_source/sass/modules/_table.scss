@@ -1,0 +1,28 @@
+.account-table{
+	
+	width:100%;
+	font-size:17px;
+	font-family:Franklin Gothic Book;
+	color:#8e744a;
+	margin-top:10px;
+	text-align:left;
+	border:0;
+	border-collapse:collapse;
+	border-spacing:0;
+	
+	& tr{
+		background:#f9f7f6;
+		border-bottom:1px solid #fff;	
+		height:30px;
+		
+		& th{
+			font-size:20px;
+			color:#878787;	
+		}	
+	}
+	
+	.tr-odd{
+		background:#f4f0ed;
+	}
+	
+}
