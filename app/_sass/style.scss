@@ -89,13 +89,14 @@ input[type=text], input[type=password], input[type=email], select {
   height: 100%;
   position: relative;
   vertical-align: middle;
+//  padding-bottom: 198px;
   //    padding: 224px 0 198px 0;
 //  background: url("../../assets/images/bg.jpg") center center no-repeat;
   overflow: hidden;
 
   >header {
     height: 224px;
-    position: absolute;
+//    position: absolute;
     top: 0;
   }
   >footer {
@@ -106,11 +107,16 @@ input[type=text], input[type=password], input[type=email], select {
   section {
     width: 100%;
     height: 100%;
-    min-height: 840px;
+//    min-height: 840px;
+    min-height: 626px;
 //    position: relative;
     vertical-align: middle;
-    background: url("../../assets/images/bg.jpg") center center no-repeat;
+    background: url("../../assets/images/bg.jpg") center top no-repeat;
     overflow: hidden;
+
+    &.home {
+      background: url("../images/login_bg.jpg") center center no-repeat !important;
+    }
 
     .container {
       width: 100%;
@@ -200,6 +206,11 @@ input[type=text], input[type=password], input[type=email], select {
       } // end ul
     } // end login
   } // end content
+  .main {
+      width: 1060px;
+      margin: 196px auto 0 auto;
+      position: relative;
+  }
   .txt-center {
     text-align: center !important;
   }
@@ -209,12 +220,26 @@ input[type=text], input[type=password], input[type=email], select {
   .txt-right {
     text-align: right !important;
   }
+
+  .left-sidebar {
+    width: 240px;
+    float: left;
+    margin-top: 140px;
+  }
+  .right-sidebar {
+    width: 790px;
+    float: right;
+  }
 } // end wrapper
 
 .relative {
   position: relative;
 }
+
+// for demo style
 .demo {
+  position: absolute;
+  background: $white;
   span {
     margin: 0 20px;
     display: inline-block;
