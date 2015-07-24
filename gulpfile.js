@@ -10,6 +10,8 @@ var gulp = require('gulp');
     connect = require('gulp-connect'),
     bower = require('gulp-bower'),
     colors = require('colors'),
+    spritesmith = require('gulp.spritesmith'),
+    mergeStream = require('merge-stream'),
     uglify = require('gulp-uglify');
 	//ver = require('gulp-ver'),
 	//rimraf = require('gulp-rimraf'),
@@ -24,7 +26,7 @@ var map = require('map-stream');
 var lang = 'en_us';
 var hash = getHash();
 
-var flagJs = false, flagCss = false, flagHtml = false;
+var flagJs = false, flagCss = false, flagHtml = false, flagImg = false;
 
 
 var options = {
@@ -40,9 +42,13 @@ var options = {
         ]
     },
     css: {
-        compile: 'app/_sass/style.scss',
-        include: ['app/_sass/'],
-        watch: ['app/_sass/*.scss', 'app/_sass/**/*.scss']
+        compile: 'app/_source/sass/style.scss',
+        include: ['app/_source/sass/'],
+        watch: ['app/_source/sass/*.scss', 'app/_source/sass/**/*.scss']
+    },
+    img: {
+        spriteImageName: 'sprite.' + hash + '.png',
+        spriteCssName: 'sprite.scss'
     },
     vendor: this.root + '/vendor',
     hooks: 'hooks/*',
@@ -50,7 +56,7 @@ var options = {
 };
 
 options.js.dest = options.root + '/assets/js';
-options.js.clean = options.root + '/assets/css/all.*.js';
+options.js.clean = options.root + '/assets/js/all.*.js';
 options.js.name = 'all.' + hash + '.js';
 options.css.dest = options.root + '/assets/css';
 options.css.clean = options.root + '/assets/css/all.*.css';
@@ -59,6 +65,10 @@ options.vendor = options.root + '/vendor';
 options.html.index = options.root + '/index.html';
 options.html.watch = [options.html.index, 'app/web/modules/**/*.html'];
 
+options.img.src = options.root + '/_source/img/*.{png,jpg,ico}';
+options.img.imgDest = options.root + '/assets/img/';
+options.img.cssDest = options.root + '/_source/sass';
+options.img.clean = options.root + '/assets/img/sprite.*.png';
 
 function errorReporter () {
     return map(function (file, cb) {
@@ -98,7 +108,7 @@ gulp.task('jshint', function() {
 });
 
 
-gulp.task('css', function () {
+gulp.task('css', ['img_build'], function () {
     flagCss = true;
 
     var stream = gulp.src(options.css.compile)
@@ -116,11 +126,33 @@ gulp.task('js', function () {
         .pipe(errorReporter())
         .pipe(concat(options.js.name));
     del(options.js.clean);
-  	stream.pipe(gulp.dest(options.js.dest));
+  	return stream.pipe(gulp.dest(options.js.dest));
+});
+ 
+gulp.task('img_build', function(cb) {
+    if (flagImg === true) {
+        flagImg = false;
+        var spriteData = 
+            gulp.src(options.img.src) // source path of the sprite images
+                .pipe(spritesmith({
+                    imgName: options.img.spriteImageName,
+                    cssName: options.img.spriteCssName,
+                    cssTemplate: '.scss.template.handlebars',
+            }));
+        del(options.img.clean);
+        spriteData.img.pipe(gulp.dest(options.img.imgDest)); // output path for the sprite
+        spriteData.css.pipe(gulp.dest(options.img.cssDest)); // output path for the CSS
+        return mergeStream(spriteData.img, spriteData.css);
+    }
+    cb();
 });
 
 gulp.task('html', function () {
     flagHtml = true;
+});
+gulp.task('img', function () {
+    flagImg = true;
+    gulp.run('img_build');
 });
 
 
@@ -138,9 +170,8 @@ gulp.task('gen', function(){
         stream = stream.pipe(replace(/window\.BUILD_HTML_HASH\s\=\s\'[a-z0-9]{7}'/g, "window.BUILD_HTML_HASH = '" + hash + "'"));
         flagHtml = false;
     }
-    stream.pipe(gulp.dest(options.root)).pipe(connect.reload());
+    return stream.pipe(gulp.dest(options.root)).pipe(connect.reload());
 });
-
 
 // Not used for now
 gulp.task('minify', function () {
@@ -150,21 +181,27 @@ gulp.task('minify', function () {
 });
 
 
-gulp.task('default', ['js', 'css', 'html', 'gen']);
-gulp.task('watch', function () {
+gulp.task('default', ['img', 'css', 'js', 'html', 'gen']);
+
+gulp.task('watch', function (cb) {
     //livereload.listen();
-    gulp.watch(options.js.src, ['js','gen']);
+    gulp.watch(options.js.src, ['js']).on('change', function (e) {
+        console.log('ON File ' + e.path + ' was ' + e.type + ', running task');
+    });
     gulp.watch(options.css.watch, ['css','gen']);
     gulp.watch(options.html.watch, ['html','gen']);
-    gulp.watch('gulpfile.js', ['default']);
+    gulp.watch(options.img.src, ['img']);
+    gulp.watch('gulpfile.js', ['js']);
+    cb();
 });
 
 
-gulp.task('connect', function() {
+gulp.task('connect', function(cb) {
     connect.server({
         port: 80,
         root: options.root,
         livereload: true
     });
+    cb();
 });
 gulp.task('live', ['connect', 'watch']);

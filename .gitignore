@@ -20,3 +20,4 @@ config/config-local.js
 /app/index.html
 /app/assets/css/all*.css
 /app/assets/js/all*.js
+/app/assets/img/sprite.*.png
