@@ -1,101 +1,183 @@
 /*******************  NEW BUTTON STYLE START *********************/
-.btn {
-    display: inline-block;
-    padding: 9px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-size: 18px;
-    line-height: 20px;
-    overflow: hidden;
-    height: auto;
-} 
-/* BUTTON COLOR */
-.btn.btn-select { 
-    background-color: #fff;
-    color: $darker-brown;
-    width: 230px;
-    &.btn-active, &.active {
-        background-color: #89AE98;
-        border-color: #89AE98;
-        color: #FFF;
-        &:hover {
-            background-color: #89AE98;
-            color: #fff;
-        }
-    }
-    &:hover {
-        background-color: #eee;
-        color: $darker-brown;
-    }
-}
-
-.btn.btn-success {
-    background-color: #62A960;
-    border-color: #62A960;
-    &:hover {
-        background-color: #62A960;
-        color: #FFF;
-    }
-}
+//.btn {
+//    display: inline-block;
+//    padding: 9px 12px;
+//    margin-bottom: 0;
+//    font-size: 14px;
+//    font-weight: 400;
+//    line-height: 1.42857143;
+//    text-align: center;
+//    white-space: nowrap;
+//    vertical-align: middle;
+//    -ms-touch-action: manipulation;
+//    touch-action: manipulation;
+//    cursor: pointer;
+//    -webkit-user-select: none;
+//    -moz-user-select: none;
+//    -ms-user-select: none;
+//    user-select: none;
+//    background-image: none;
+//    border: 1px solid transparent;
+//    border-radius: 8px;
+//    font-size: 18px;
+//    line-height: 20px;
+//    overflow: hidden;
+//    height: auto;
+//}
+///* BUTTON COLOR */
+//.btn.btn-select {
+//    background-color: #fff;
+//    color: $darker-brown;
+//    width: 230px;
+//    &.btn-active, &.active {
+//        background-color: #89AE98;
+//        border-color: #89AE98;
+//        color: #FFF;
+//        &:hover {
+//            background-color: #89AE98;
+//            color: #fff;
+//        }
+//    }
+//    &:hover {
+//        background-color: #eee;
+//        color: $darker-brown;
+//    }
+//}
+//
+//.btn.btn-success {
+//    background-color: #62A960;
+//    border-color: #62A960;
+//    &:hover {
+//        background-color: #62A960;
+//        color: #FFF;
+//    }
+//}
 
 
 /** DEFAULT */
-.btn {
-    color: #FFF;
-    background-color: $darker-brown;
-    border-color: $darker-brown;
-    &:hover {
-        background-color: #8d744d;
-        color: #eee;
-        filter: alpha(opacity=8);
-        opacity: .8;
-    }
-    &[disabled], &.disabled, &.btn-disabled {
-        //@extend .disabled;
-        cursor: not-allowed;
-        filter: alpha(opacity=8);
-        opacity: .8;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        background-color: $disabled-color;
-        border-color: $disabled-color;
-    }
-}
-/* BUTTON SIZE */
-.btn-lg {
-    width: 250px;
-    padding: 9px 12px;
-    line-height: 20px;
-    font-size: 18px;    
-}
-.btn-st {
-    @extend .btn-lg;
-    width: 190px;
-}
-.btn-sm {
-    padding: 6px 12px;
-    line-height: 16px;
-}
-.btn-xs {
-    padding: 4px 12px;
-    width: 155px;
-    line-height: 14px;
-    font-size: 14px;
-}
+//.btn {
+//    color: #FFF;
+//    background-color: $darker-brown;
+//    border-color: $darker-brown;
+//    &:hover {
+//        background-color: #8d744d;
+//        color: #eee;
+//        filter: alpha(opacity=8);
+//        opacity: .8;
+//    }
+//    &[disabled], &.disabled, &.btn-disabled {
+//        //@extend .disabled;
+//        cursor: not-allowed;
+//        filter: alpha(opacity=8);
+//        opacity: .8;
+//        -webkit-box-shadow: none;
+//        box-shadow: none;
+//        background-color: $disabled-color;
+//        border-color: $disabled-color;
+//    }
+//}
+///* BUTTON SIZE */
+//.btn-lg {
+//    width: 250px;
+//    padding: 9px 12px;
+//    line-height: 20px;
+//    font-size: 18px;
+//}
+//.btn-st {
+//    @extend .btn-lg;
+//    width: 190px;
+//}
+//.btn-sm {
+//    padding: 6px 12px;
+//    line-height: 16px;
+//}
+//.btn-xs {
+//    padding: 4px 12px;
+//    width: 155px;
+//    line-height: 14px;
+//    font-size: 14px;
+//}
 
 /******************** NEW BUTTON STYLE END ********************/
+
+// for web portal
+@import "../utils/variables";
+
+// buttons
+.btn {
+  font-size: 24px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  display: inline-block;
+  color: $white;
+  text-transform: uppercase;
+
+  &.mid-yellow {
+    background-color: $yellow;
+  }
+
+  &.mid {
+    width: 207px;
+  }
+  &.italic {
+    font-style: italic;
+  }
+
+  &:hover {
+
+  }
+} // end btn
+
+
+
+
+.nav {
+  & li {
+    float: left;
+    margin-left: 48px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    >a {
+      width: 120px;
+      height: 120px;
+      display: table-cell;
+      color: $white;
+      text-align: center;
+      vertical-align: middle;
+      background-color: $light-grey;
+      opacity: .5;
+      filter: alpha(opacity=50);
+      border-radius: 100px;
+      text-transform: uppercase;
+
+      >span {
+        width: 120px;
+        height: auto;
+        display: inherit;
+      }
+
+      &:hover {
+        background-color: $dark-red;
+      }
+    } // end a
+  } // end li
+} // end nav
+
+.list {
+  >li {
+    height: 54px;
+    >a {
+      text-transform: uppercase;
+      color: $light-grey;
+
+      &:hover {
+        opacity: .8;
+        filter: alpha(opacity=80);
+      }
+    } // end a
+  } // end li
+} // end list

@@ -1,22 +1,39 @@
+// for web portal
+// Fonts: Helvetica Neue Thin
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal ) {
+  @font-face {
+    font-family: $font-family;
+    src:url('#{$file-path}.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
 
-//pc Height
-$pc-header-height:2.5%;
-$pc-section-height:83.5%;
-$pc-footer-height:14%;
+$FranklinGothicBook: FranklinGothicBook;
+$FranklinGothicBookRegular: FranklinGothicBookRegular;
 
-//pc login Height
-$pc-login-header-height:2.5%;
-$pc-login-section-height:97.5%;
+@include font-face(#{$FranklinGothicBook}, '../fonts/#{$FranklinGothicBook}/#{$FranklinGothicBook}');
+@include font-face(#{$FranklinGothicBookRegular}, '../fonts/#{$FranklinGothicBookRegular}/#{$FranklinGothicBookRegular}');
 
-$main-background: #a71f38;
-$darker-brown: #816c4d;
-$light-brown: #8d744d;
-$darker-red: #ac1a2f;
-$light-orange: #f4f1ec;
-$light-green: #62a945;
-$darker-red2: #ac1f2d;
-$sea-green:#72A189;
-$light-green:#62a945;
-$darker-middle-brown: #8F7447;
+// Color variable
+$light-grey: #878787;  // the circle selection
+$lighter-grey: #e7e7e7;
+$lighter2-grey: #f3f3f3;
+$lighter3-grey: #e6e6e6;
 
-$disabled-color: #B4B4B4;
+$dark-red: #901823; // hover style and selected style
+
+$yellow: #8c724c;
+$lighter-yellow: #f4f0ec;
+
+$black: #000;
+$lighter-black: #2c2417; //the button's border color
+
+$green: #63a51f; //golf bay color
+
+$white: #fff;
+
+
+// opacity value
+
+
