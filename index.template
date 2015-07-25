@@ -16,9 +16,9 @@
 	</head>
 	<body>
         <div class="wrapper">
-            <header><img src="../../assets/images/header.jpg" /></header>
+            <header><img src="assets/img/header.jpg" /></header>
             <div ui-view></div>
-            <footer><img src="../../assets/images/footer.jpg" /></footer>
+            <footer><img src="assets/img/footer.jpg" /></footer>
         </div>
 		<script src="vendor/jquery/dist/jquery.min.js"></script>
 		<script src="vendor/angularjs/angular.js"></script>
