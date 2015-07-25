@@ -16,4 +16,14 @@ angular.module('webapp.account', [])
         templateUrl : 'web/modules/account/member_myacc_02.html',
         controller: 'IndexCtrl'
     });
+    $stateProvider.state('app.member_myacc_03', {
+        url : 'member_myacc_03',
+        templateUrl : 'web/modules/account/member_myacc_03.html',
+        controller: 'IndexCtrl'
+    });
+    $stateProvider.state('app.member_myacc_04', {
+        url : 'member_myacc_04',
+        templateUrl : 'web/modules/account/member_myacc_04.html',
+        controller: 'IndexCtrl'
+    });
 });
