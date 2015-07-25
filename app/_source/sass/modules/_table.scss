@@ -1,7 +1,39 @@
+@import "../utils/variables";
 table {
+  th, td {
+    font-family: "FranklinGothicBook";
+    height: 28px;
+  }
+
   thead {
     >tr {
       background-color: $lighter-yellow;
+
+      th {
+        color: $light-grey;
+        font-weight: bold;
+
+        &:first-child {
+          text-indent: 20px;
+        }
+      }
     }
-  }
-}
+  } // emd thead
+  tbody {
+    >tr:nth-child(odd) {
+      background-color: $lighter2-yellow;
+    }
+    >tr:nth-child(even) {
+      background-color: $lighter-yellow;
+    }
+    td {
+      border-bottom: 1px solid $white;
+      color: $yellow;
+      font-size: 17px;
+
+      &:first-child {
+        text-indent: 20px;
+      }
+    }
+  } // end body
+} // end table

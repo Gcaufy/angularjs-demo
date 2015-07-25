@@ -270,5 +270,15 @@ h3 {
     height: 40px;
     border: 1px solid $lighter4-grey;
     background-color: $lighter2-grey;
+    color: $yellow;
+    font-size: 17px;
   }
 }
+
+.data {
+  margin: 20px 0 0 0;
+
+  .filter-area {
+    margin: 20px 0;
+  }
+} // end data-area
