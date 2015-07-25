@@ -6,4 +6,9 @@ angular.module('webapp.account', [])
 		templateUrl : 'web/modules/account/info.html',
 		controller: 'InfoCtrl'
 	});
+    $stateProvider.state('app.member_myacc_02', {
+        url : 'member_myacc_02',
+        templateUrl : 'web/modules/account/member_myacc_02.html',
+        controller: 'IndexCtrl'
+    });
 });

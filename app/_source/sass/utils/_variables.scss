@@ -12,15 +12,17 @@
 $FranklinGothicBook: FranklinGothicBook;
 $FranklinGothicBookRegular: FranklinGothicBookRegular;
 
-@include font-face(#{$FranklinGothicBook}, '../fonts/#{$FranklinGothicBook}/#{$FranklinGothicBook}');
-@include font-face(#{$FranklinGothicBookRegular}, '../fonts/#{$FranklinGothicBookRegular}/#{$FranklinGothicBookRegular}');
+@include font-face(#{$FranklinGothicBook}, '../assets/fonts/#{$FranklinGothicBook}/#{$FranklinGothicBook}');
+@include font-face(#{$FranklinGothicBookRegular}, '../assets/fonts/#{$FranklinGothicBookRegular}/#{$FranklinGothicBookRegular}');
 
 // Color variable
 $light-grey: #878787;  // the circle selection
 $lighter-grey: #e7e7e7;
 $lighter2-grey: #f3f3f3;
 $lighter3-grey: #e6e6e6;
+$lighter4-grey: #c3c3c3;
 
+$red: #ac1a2f;
 $dark-red: #901823; // hover style and selected style
 
 $yellow: #8c724c;
@@ -28,10 +30,12 @@ $lighter-yellow: #f4f0ec;
 
 $black: #000;
 $lighter-black: #2c2417; //the button's border color
+$brown: #615b51;
 
 $green: #63a51f; //golf bay color
 
 $white: #fff;
+
 
 
 // opacity value

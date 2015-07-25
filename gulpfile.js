@@ -92,7 +92,8 @@ function getHash() {
 function updateHash() {
     hash = getHash();
     options.js.name = 'all.' + hash + '.js';
-    options.css.name = 'all.' + hash + '.css';
+    var cssHash = '0000000';  // fixed the css name for adjusting
+    options.css.name = 'all.' + cssHash + '.css';
     options.img.spriteImageName = 'sprite.' + hash + '.png';
     return hash;
 }

@@ -1,0 +1,274 @@
+@import "../utils/variables";
+.nav {
+  & li {
+    float: left;
+    margin-left: 47px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    >a {
+      width: 120px;
+      height: 120px;
+      display: table-cell;
+      color: $white;
+      text-align: center;
+      vertical-align: middle;
+      background-color: $light-grey;
+      opacity: .5;
+      filter: alpha(opacity=50);
+      border-radius: 100px;
+      text-transform: uppercase;
+
+      >span {
+        width: 120px;
+        height: auto;
+        display: inherit;
+      }
+
+      &:hover, &.active {
+        background-color: $dark-red;
+      }
+    } // end a
+  } // end li
+} // end nav
+
+.list {
+  >li {
+    height: 54px;
+    >a {
+      text-transform: uppercase;
+      color: $light-grey;
+
+      &:hover {
+        opacity: .8;
+        filter: alpha(opacity=80);
+      }
+    } // end a
+  } // end li
+} // end list
+
+
+.breadcrumb {
+  color: $dark-red;
+  text-transform: uppercase;
+  margin: 20px 0;
+
+  >a {
+    color: $dark-red;
+    font-size: 15px;
+  }
+} // end breadcrumb
+
+.pagination {
+  vertical-align: middle;
+  font-family: "FranklinGothicBook";
+  font-size: 15px;
+  color: $red;
+
+  >a {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    display: inline-block;
+    color: $red;
+    font-size: 15px;
+    font-family: "FranklinGothicBook";
+
+    &.active {
+      border-radius: 25px;
+      background-color: $lighter-grey;
+    }
+  }
+} // end pagination
+
+.tabs {
+  >li {
+    float: left;
+    width: 50%;
+    height: 80px;
+    line-height: 80px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $lighter3-grey;
+    margin-bottom: 20px;
+
+    >a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      color: $light-grey;
+      text-align: left;
+      font-size: 20px;
+      text-transform: uppercase;
+
+      >i {
+        float: left;
+        margin: 20px 20px 0 20px;
+      }
+    }
+    >i {
+      visibility: hidden;
+    }
+    &.active {
+      background-color: $lighter-yellow;
+
+      >a {
+        color: $yellow;
+      }
+      >i {
+        visibility: visible;
+      }
+    } // end active
+  } // end li
+} // end tabs
+
+// narrow -- start
+.narrow {
+  width: 0;
+  height: 0;
+  bottom: -10px;
+  position: absolute;
+
+  &.bottom {
+    border-top: 10px solid $lighter-yellow;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+  &.top {
+    border-bottom: 10px solid $lighter-yellow;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+  &.left {
+    border-right: 10px solid $lighter-yellow;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  &.right {
+    border-left: 10px solid $lighter-yellow;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+} // end narrow
+
+.info {
+  >li {
+    font-size: 20px;
+    margin: 16px 0;
+    font-family: "FranklinGothicBook";
+
+    >label {
+      width: 278px;
+      padding-left: 20px;
+      color: $red;
+      display: inline-block;
+    }
+    >span {
+      color: $black;
+      font-weight: bold;
+    }
+  }
+} // end info
+
+.fragment {
+  background-color: $lighter-yellow;
+  padding: 10px 10px 20px 10px;
+  font-family: "FranklinGothicBook";
+
+  >h2 {
+    color: $yellow;
+    line-height: 36px;
+    margin-bottom: 20px;
+
+    >i {
+      float: left;
+      margin: 0 20px 0 10px;
+    }
+  } // end h2
+
+//  >h3 {
+//    font-family: "FranklinGothicBook";
+//    color: $red;
+//    margin-top: 6px;
+//  }
+
+  &.account {
+    div {
+      background-color: $white;
+      padding: 10px 10px 20px 10px;
+      margin-bottom: 10px;
+
+      width: 360px;
+      float: left;
+    }
+  }
+  div {
+    >p {
+      font-family: "FranklinGothicBook";
+      color: $yellow;
+      font-size: 17px;
+
+      &.first-child {
+        color: $light-grey;
+        margin-bottom: 20px;
+      }
+
+      >span {
+        color: $black;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+    >button {
+      font-family: "FranklinGothicBook" !important;
+    }
+    >h3 {
+      font-size: 20px;
+      font-weight: bold;
+      color: $yellow;
+      font-family: "FranklinGothicBook";
+      margin-bottom: 6px;
+    }
+    >ul {
+      >li {
+        font-size: 18px;
+        line-height: 24px;
+        font-family: "FranklinGothicBook";
+
+        >label {
+          width: 210px;
+          color: $yellow;
+          display: inline-block;
+        }
+        >span {
+          color: $green;
+        }
+      } // end li;
+    } // end ul
+  } // end div
+} // end fragment
+
+h3 {
+  font-family: "FranklinGothicBook";
+  color: $red;
+  margin-top: 6px;
+}
+
+.filter {
+  >span {
+    font-size: 15px;
+    color: $light-grey;
+    margin-right: 10px;
+  }
+  >select {
+    min-width: 174px;
+    width: 174px;
+    height: 40px;
+    border: 1px solid $lighter4-grey;
+    background-color: $lighter2-grey;
+  }
+}
