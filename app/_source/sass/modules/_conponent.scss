@@ -36,16 +36,33 @@
 
 .list {
   >li {
-    height: 54px;
+    line-height: 54px;
     >a {
       text-transform: uppercase;
       color: $light-grey;
+      width: 100%;
 
       &:hover {
         opacity: .8;
         filter: alpha(opacity=80);
       }
+
+      >i {
+        margin-left: 20px;
+        visibility: hidden;
+      }
     } // end a
+
+    &.active {
+      >a {
+        color: $red;
+
+        >i {
+          margin-left: 20px;
+          visibility: visible;
+        }
+      }
+    } // end active
   } // end li
 } // end list
 
@@ -222,7 +239,7 @@
         font-size: 20px;
         font-weight: bold;
       }
-    }
+    } // end p
     >button {
       font-family: "FranklinGothicBook" !important;
     }
@@ -250,12 +267,38 @@
       } // end li;
     } // end ul
   } // end div
+  ul.info {
+    margin: 40px 0 0 10px;
+    >li {
+      font-size: 25px;
+
+      >label {
+        width: 210px;
+        display: inline-block;
+        color: $yellow;
+      }
+      >span {
+        color: $yellow;
+        font-weight: normal;
+      }
+    } // end li
+  } // ul.info
 } // end fragment
 
 h3 {
   font-family: "FranklinGothicBook";
   color: $red;
   margin-top: 6px;
+}
+.sub-title {
+  font-size: 20px;
+  color: $yellow;
+}
+.large-width {
+  width: 398px !important;
+}
+.green-bg {
+  background-color: $light-green;
 }
 
 .filter {
@@ -282,3 +325,41 @@ h3 {
     margin: 20px 0;
   }
 } // end data-area
+
+.form-field {
+  >li {
+    margin: 16px 0 0 0;
+
+    >label {
+      width: 200px;
+      display: inline-block;
+      font-family: "FranklinGothicBook";
+      color: $yellow;
+    }
+
+    >input {
+      width: 202px;
+    }
+
+    >button {
+      width: 228px;
+    }
+
+    >select {
+      width: 398px;
+      color: $yellow;
+      font-size: 20px;
+    }
+  } // end li
+} // end form-field
+
+.photo-area {
+  width: 160px;
+  height: 160px;
+  border-radius: 90px;
+  overflow: hidden;
+  margin: 12px 20px 20px 12px;
+
+
+
+}
