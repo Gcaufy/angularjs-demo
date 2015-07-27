@@ -1,22 +1,24 @@
 <section class="home">
     <div class="container">
         <div class="content login">
+        <form name="loginForm" ng-submit="login()" novalidate>
             <ul>
                 <li>
                     <label>E-mail address:</label>
-                    <input type="email"/>
+                    <input type="text" ng-model="user.username"/>
                 </li>
                 <li>
                     <label>Password:</label>
-                    <input type="text"/>
+                    <input type="password" ng-model="user.password"/>
                 </li>
                 <li class="get-pwd">
                     <a href="javescript:;">Forgot password</a>
                 </li>
                 <li class="btn-area">
-                    <button class="btn mid mid-yellow italic">LOG IN</button>
+                    <button class="btn mid mid-yellow italic" type="submit">LOG IN</button>
                 </li>
             </ul>
+            </form>
 
         </div>
     </div>

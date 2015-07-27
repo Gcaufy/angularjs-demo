@@ -1,6 +1,8 @@
 'use strict';
 
 window.webapp = angular.module('webapp', ['ui.router', 
+    'ngResource',
+    'AddAuthTokenService',
     'webapp.home',
     'webapp.daypass',
     'webapp.event',

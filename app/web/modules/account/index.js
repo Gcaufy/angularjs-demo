@@ -1,6 +1,5 @@
 angular.module('webapp.account')
 
-
 .controller('InfoCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
 	
 	/* params */
@@ -179,3 +178,4 @@ angular.module('webapp.account')
 	};
 	
 })
+
