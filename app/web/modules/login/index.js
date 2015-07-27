@@ -2,7 +2,8 @@ angular.module('webapp.login')
 
 .factory("LOGIN_URLS", function(urlHelper) {
 	return urlHelper({
-		'LOGIN': 'home/login'
+		"LOGIN": "home/login",
+		"CUSTOMER_ID":'membership/getCustomerName/:userId'
 	});
 })
 .controller('LoginCtrl', function($scope,$resource,$state,AuthTokenService,LOGIN_URLS,noTokenInterceptor) {
@@ -31,6 +32,12 @@ angular.module('webapp.login')
 					alertify.error("Login Failed, there is not userNo value");
 					return;
 				}
+				var customerInfoResource = $resource(LOGIN_URLS.CUSTOMER_ID);
+				customerInfoResource.get({
+					"userId":userId
+				},function(res){
+					AuthTokenService.setCustomerId(res.data.customerId);
+				});
 				AuthTokenService.setCurrentToken(auth_token);
 				AuthTokenService.setCurrentUserName(userName);
 				AuthTokenService.setCurrentUserType(userType);

@@ -5,11 +5,14 @@
             <ul>
                 <li>
                     <label>E-mail address:</label>
-                    <input type="text" ng-model="user.username"/>
+                    <input type="text" ng-model="user.username" name="username"/>
+                    <div class="error" ng-messages="loginForm.username.$error" ng-if='loginForm.username.$dirty'>
+                        <label ng-message="required">Course Name is required</label>
+                    </div>
                 </li>
                 <li>
                     <label>Password:</label>
-                    <input type="password" ng-model="user.password"/>
+                    <input type="password" ng-model="user.password" name="password"/>
                 </li>
                 <li class="get-pwd">
                     <a href="javescript:;">Forgot password</a>
