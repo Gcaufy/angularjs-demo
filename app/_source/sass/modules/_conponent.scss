@@ -594,7 +594,21 @@
       width: 390px;
 
       .fragment {
-        background-color: $lighter-grey;
+        padding: 10px;
+
+        &.light-grey-bg {
+          background-color: $lighter-grey;
+          margin-bottom: 1px;
+        }
+
+        .txt {
+          color: $light-grey;
+          line-height: 20px;
+          margin: 4px 0 0 0;
+        }
+        h3 {
+          margin-top: 10px;
+        }
       }
     } // end private-coach
 
@@ -749,6 +763,20 @@ ul.info-detail {
     line-height: 26px;
     color: $white;
     background-color: $dark-red;
+  }
+} // end date
+
+.score-area {
+  margin: 20px 0 0 0;
+
+  >label {
+    float: left;
+    margin: 14px 10px;
+  }
+  >span {
+    font-size: 40px;
+    color: $red;
+    padding-top: 30px;
   }
 }
 
