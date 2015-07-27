@@ -37,7 +37,10 @@ var options = {
             '!app/vendor/**/*.js',
             '!app/assets/js/all.*.js',
             'app/web/index.js',
-            'config/*.js',
+            'config/config.js',
+            'config/config-local.js',
+            'app/_source/common/**/*.js',
+            'config/**/*.js',
             'app/web/**/*.js'
         ]
     },
