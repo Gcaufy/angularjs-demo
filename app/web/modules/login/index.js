@@ -1,11 +1,4 @@
 angular.module('webapp.login')
-
-.factory("LOGIN_URLS", function(urlHelper) {
-	return urlHelper({
-		"LOGIN": "home/login",
-		"CUSTOMER_ID":'membership/getCustomerName/:userId'
-	});
-})
 .controller('LoginCtrl', function($scope,$resource,$state,AuthTokenService,LOGIN_URLS,noTokenInterceptor) {
 	$scope.login = function() {
 		var resource = $resource(LOGIN_URLS.LOGIN);

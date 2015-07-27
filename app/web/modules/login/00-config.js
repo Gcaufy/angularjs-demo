@@ -26,4 +26,10 @@ angular.module('webapp.login', [])
         templateUrl : 'web/modules/login/index5.html',
         controller: 'IndexCtrl'
     });
+})
+.factory("LOGIN_URLS", function(urlHelper) {
+    return urlHelper({
+        "LOGIN": "home/login",
+        "CUSTOMER_ID":'membership/getCustomerName/:userId'
+    });
 });
