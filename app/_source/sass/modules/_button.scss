@@ -104,6 +104,10 @@
 @import "../utils/variables";
 
 // buttons
+button[disabled=disabled] {
+  opacity: .5;
+}
+
 .btn {
   font-size: 24px;
   min-height: 30px;

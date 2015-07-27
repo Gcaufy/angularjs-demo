@@ -127,9 +127,68 @@
           margin: 10px 0 0 0;
         }
       }
-    }
-  }
+    } // end li
+  } // end course
 
+  &.private-coach {
+    >li {
+      line-height: 24px;
+      background-color: $lighter-yellow;
+      margin-left: 4px;
+      width: 394px;
+      height: 222px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.active {
+        width: 384px;
+        border: 4px solid $yellow;
+        height: 214px;
+
+        img {
+          width: 384px;
+          height: 214px;
+          opacity: .6;
+        }
+        h1 {
+          color: $white;
+          text-shadow: 2px 2px 4px $light-grey;
+        }
+      }
+
+      >a {
+        text-align: center;
+
+        i {
+          float: none;
+          margin: 10px 0 0 0;
+        }
+      }
+      h1 {
+        font-family: "constantia";
+        line-height: 220px;
+        color: $yellow;
+      }
+      img {
+        opacity: .6;
+      }
+    } // end li
+  } // end private-coach
+
+  .title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    vertical-align: middle;
+    //            background-color: $white;
+    //            opacity: .4;
+    z-index: 99;
+  }
   >li {
     float: left;
     width: 50%;
@@ -152,18 +211,6 @@
 
           >img {
             opacity: .6;
-          }
-          >div {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            text-align: center;
-            vertical-align: middle;
-//            background-color: $white;
-//            opacity: .4;
-            z-index: 99;
           }
           h1 {
             font-family: "Constantia";
@@ -543,6 +590,14 @@
       }
     } // end event
 
+    &.private-coach {
+      width: 390px;
+
+      .fragment {
+        background-color: $lighter-grey;
+      }
+    } // end private-coach
+
     .form-field {
       >li {
         color: $yellow;
@@ -654,9 +709,6 @@ ul.info-detail {
   margin: 20px 0;
 
   >li {
-    width: 82px;
-    height: 82px;
-    text-align: center;
     float: left;
     border: 8px solid $white;
     margin-right: 16px;
@@ -666,6 +718,9 @@ ul.info-detail {
       height: 100%;
       display: inline-block;
       border: 1px solid $light-grey;
+      width: 82px;
+      height: 82px;
+      text-align: center;
 
       .month {
         height: 26px;
@@ -677,6 +732,23 @@ ul.info-detail {
     &.active {
       border: 8px solid $lighter-grey;
     }
+  }
+}
+
+.date {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border: 1px solid $light-grey;
+  width: 82px;
+  height: 82px;
+  text-align: center;
+
+  .month {
+    height: 26px;
+    line-height: 26px;
+    color: $white;
+    background-color: $dark-red;
   }
 }
 
@@ -708,6 +780,31 @@ ul.info-detail {
     }
     &.last-child {
       border-top: 1px solid $light-grey;
+    }
+  }
+}
+
+.record-list {
+  margin: 0;
+
+  >li {
+    background-color: $lighter2-grey;
+    padding: 10px;
+    margin: 0 0 12px 0;
+    border: none;
+    float: none;
+
+    >div {
+      float: left;
+      width: 648px;
+      margin-left: 30px;
+
+      h3 {
+        margin: 0;
+      }
+      p {
+        color: $light-grey;
+      }
     }
   }
 }
