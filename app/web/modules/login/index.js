@@ -1,8 +1,27 @@
 angular.module('webapp.login')
 .controller('LoginCtrl', function($scope,$resource,$state,AuthTokenService,LOGIN_URLS,noTokenInterceptor) {
 	$scope.login = function() {
-		var resource = $resource(LOGIN_URLS.LOGIN);
-		resource.save($scope.user,function(data,headers){
+		var resource = $resource(LOGIN_URLS.LOGIN),
+		 	username = $scope.username,
+			password = $scope.password,
+			user = {
+				username:username,
+				password:password
+			};
+		
+		if(!username){
+			alertify.error(MSG.MOD_USER.LOGIN.ERR_USERNAME_EMPTY);
+			return ;
+		}
+		if(!WPUtils.isEmail(username)){
+			alertify.error(MSG.MOD_USER.LOGIN.ERR_USERNAME_FORMAT);
+			return ;
+		}
+		if(!password){
+			alertify.error(MSG.MOD_USER.LOGIN.ERR_PASSWORD_EMPTY);
+			return ;
+		}
+		resource.save(user,function(data,headers){
 			if(data.data){
 				var auth_token = headers().token;
 				var userName = data.data.userName;
@@ -14,15 +33,15 @@ angular.module('webapp.login')
 					return;
 				}
 				if(!userName){
-					alertify.error("Login Failed, there is not user name value");
+					alertify.error(MSG.MOD_USER.LOGIN.ERR_RES_NO_USERNAME);
 					return;
 				}
 				if(!userType){
-					alertify.error("Login Failed, there is not user type value");
+					alertify.error(MSG.MOD_USER.LOGIN.ERR_RES_NO_USERTYPE);
 					return;
 				}
 				if(!userNo){
-					alertify.error("Login Failed, there is not userNo value");
+					alertify.error(MSG.MOD_USER.LOGIN.ERR_RES_NO_USERNO);
 					return;
 				}
 				var customerInfoResource = $resource(LOGIN_URLS.CUSTOMER_ID);
