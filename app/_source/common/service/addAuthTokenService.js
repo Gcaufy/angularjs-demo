@@ -47,7 +47,7 @@ angular.module('AddAuthTokenService',['angular-storage'])
 
     service.getCustomerId = function() {
         if (!currentCustomerId) {
-            currentCustomerId = store.get('__currentCustomerId');
+            currentCustomerId = store.get('__customer');
         }
         return currentCustomerId ;
     };
