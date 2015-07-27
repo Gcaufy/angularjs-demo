@@ -7,6 +7,7 @@ window.webapp = angular.module('webapp', ['ui.router',
     'webapp.daypass',
     'webapp.event',
     'webapp.dependent',
+    'webapp.login',
     'webapp.account'
 ]);
 

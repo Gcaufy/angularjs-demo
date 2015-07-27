@@ -1,4 +1,5 @@
 angular.module('webapp.account')
+
 .factory("ACCOUNT_URLS", function(urlHelper) {
 	return urlHelper({
 		'TRANSACTION_LIST': '/membership/transaction/getTransactionList'

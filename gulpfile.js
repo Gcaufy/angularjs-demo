@@ -24,7 +24,7 @@ var gulp = require('gulp');
 var map = require('map-stream');
 
 var lang = 'en_us';
-var hash = getHash();
+var hash = '';
 
 var flagJs = false, flagCss = false, flagHtml = false, flagImg = false;
 
@@ -47,7 +47,7 @@ var options = {
     css: {
         compile: 'app/_source/sass/style.scss',
         include: ['app/_source/sass/'],
-        watch: ['app/_source/sass/*.scss', 'app/_source/sass/**/*.scss']
+        watch: ['app/_source/sass/*.scss', 'app/_source/sass/**/*.scss', '!app/_source/sass/sprite.scss']
     },
     img: {
         spriteImageName: 'sprite.' + hash + '.png',
@@ -58,6 +58,7 @@ var options = {
     html: {}
 };
 
+
 options.js.dest = options.root + '/assets/js';
 options.js.clean = options.root + '/assets/js/all.*.js';
 options.js.name = 'all.' + hash + '.js';
@@ -66,7 +67,7 @@ options.css.clean = options.root + '/assets/css/all.*.css';
 options.css.name = 'all.' + hash + '.css';
 options.vendor = options.root + '/vendor';
 options.html.index = options.root + '/index.html';
-options.html.watch = [options.html.index, 'app/web/modules/**/*.html'];
+options.html.watch = ['app/web/modules/**/*.html'];
 
 options.img.src = options.root + '/_source/img/*.{png,jpg,ico}';
 options.img.imgDest = options.root + '/assets/img/';
@@ -87,8 +88,19 @@ function getHash() {
     var random = (new Date()).toISOString().slice(0, 10).replace(/-/g, "") + (new Date()).toISOString().slice(11, 16).replace(/:/g, "") + Math.random().toString().substr(0,8);
     var hasher = crypto.createHash('sha1');
     hasher.update(random);
+    return '0000000';
     return hasher.digest('hex').substr(0, 7);
 }
+
+function updateHash() {
+    hash = getHash();
+    options.js.name = 'all.' + hash + '.js';
+    options.css.name = 'all.' + hash + '.css';
+    options.img.spriteImageName = 'sprite.' + hash + '.png';
+    return hash;
+}
+
+updateHash();
 
 gulp.task('bower', function() {
     return bower(options.vendor).pipe(gulp.dest(options.vendor));
@@ -162,15 +174,15 @@ gulp.task('img', function () {
 gulp.task('gen', function(){
     var stream = gulp.src(options.html.index);
     if (flagJs) {
-        stream = stream.pipe(replace(/all\.[a-z0-9]{7}\.js/g, 'all' + '.' + hash + '.js'));
+        stream = stream.pipe(replace(/all\..*\.js/g, 'all' + '.' + hash + '.js'));
         flagJs = false;
     }
     if (flagCss) {
-        stream = stream.pipe(replace(/all\.[a-z0-9]{7}\.css/g, 'all' + '.' + hash + '.css'));
-        flagJs = false;
+        stream = stream.pipe(replace(/all\..*\.css/g, 'all' + '.' + hash + '.css'));
+        flagCss = false;
     }
     if (flagHtml) {
-        stream = stream.pipe(replace(/window\.BUILD_HTML_HASH\s\=\s\'[a-z0-9]{7}'/g, "window.BUILD_HTML_HASH = '" + hash + "'"));
+        stream = stream.pipe(replace(/window\.BUILD_HTML_HASH\s\=\s\'.*'/g, "window.BUILD_HTML_HASH = '" + hash + "'"));
         flagHtml = false;
     }
     return stream.pipe(gulp.dest(options.root)).pipe(connect.reload());
@@ -186,17 +198,26 @@ gulp.task('minify', function () {
 
 gulp.task('default', ['img', 'css', 'js', 'html', 'gen']);
 
+var fileChange = function (e) {
+    updateHash();
+    console.log(e.path + ' was ' + e.type + ', running task...');
+}
+
 gulp.task('watch', function (cb) {
     //livereload.listen();
-    gulp.watch(options.js.src, ['js']).on('change', function (e) {
-        console.log('ON File ' + e.path + ' was ' + e.type + ', running task');
-    });
-    gulp.watch(options.css.watch, ['css','gen']);
-    gulp.watch(options.html.watch, ['html','gen']);
-    gulp.watch(options.img.src, ['img']);
-    gulp.watch('gulpfile.js', ['js']);
+    /*gulp.watch(options.js.src, ['js', 'gen']).on('change', fileChange);
+    gulp.watch(options.css.watch, ['css','gen']).on('change', fileChange);
+    gulp.watch(options.html.watch, ['html','gen']).on('change', fileChange);
+    gulp.watch(options.img.src, ['img']).on('change', fileChange);
+    gulp.watch('gulpfile.js', ['default']).on('change', fileChange);*/
+
+    gulp.watch(options.js.src, ['default']).on('change', fileChange);
+    gulp.watch(options.css.watch, ['default']).on('change', fileChange);
+    gulp.watch(options.html.watch, ['default']).on('change', fileChange);
+    gulp.watch(options.img.src, ['default']).on('change', fileChange);
+    gulp.watch('gulpfile.js', ['default']).on('change', fileChange);
     cb();
-});
+}); 
 
 
 gulp.task('connect', function(cb) {

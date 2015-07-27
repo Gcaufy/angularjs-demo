@@ -15,9 +15,11 @@
 		</script>
 	</head>
 	<body>
-		<h3>HEADER</h3>
-		<div ui-view></div>
-		<h3>FOOTER</h3>
+        <div class="wrapper">
+            <header><img src="../../assets/images/header.jpg" /></header>
+            <div ui-view></div>
+            <footer><img src="../../assets/images/footer.jpg" /></footer>
+        </div>
 		<script src="vendor/jquery/dist/jquery.min.js"></script>
 		<script src="vendor/angularjs/angular.js"></script>
 		<script src="vendor/angular-route/angular-route.js"></script>
