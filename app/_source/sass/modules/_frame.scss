@@ -6,6 +6,10 @@ input[type=text], input[type=password], input[type=email], select {
   line-height: 30px;
   border: 1px solid $light-grey;
   text-indent: 10px;
+
+  &.small {
+    width: 170px;
+  }
 }
 .wrapper {
   width: 100%;
@@ -167,11 +171,88 @@ input[type=text], input[type=password], input[type=email], select {
 .uppercase {
   text-transform: uppercase;
 }
+.capitalize {
+  text-transform: capitalize;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.franklingothicbook {
+  font-family: "franklingothicbook";
+}
+.franklingothicbookregular {
+  font-family: "franklingothicbookregular";
+}
+.bold {
+  font-weight: bold;
+}
+.font17 {
+  font-size: 17px;
+}
+.font30 {
+  font-size: 30px;
+}
+.grey {
+  color: $light-grey;
+}
+.yellow {
+  color: $yellow;
+}
+.green {
+  color: $green;
+}
+.red {
+  color: $red;
+}
+.txt {
+  color: $lighter1-grey;
+  font-size: 15px;
+}
+.underline {
+  text-decoration: underline;
+}
+h4 {
+  color: $light-grey;
+  font-size: 15px;
+}
+h3 {
+  color: $red;
+  margin-top: 6px;
+}
+h2 {
+  color: $red;
+  margin-top: 6px;
+  font-family: "constantia";
+}
+h1 {
+  margin-bottom: 8px;
+}
+.large-width {
+  width: 398px !important;
+}
+.green-bg {
+  background-color: $light-green;
+  padding: 12px 20px 20px 20px;
+}
+.grey-bg {
+  background-color: $lighter-grey;
+  padding: 12px 20px 20px 20px;
+  margin: 16px 0;
+}
+.spacing {
+  padding: 20px 0 60px 0;
+}
+.comment {
+  margin-top: 30px;
+}
+
 
 // for demo style
 .demo {
   position: absolute;
   background: $white;
+  top: 0;
+
   span {
     margin: 0 20px;
     display: inline-block;
