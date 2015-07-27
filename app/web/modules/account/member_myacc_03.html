@@ -39,23 +39,35 @@
                 </li>
             </ul>
             <h2 class="sub-title uppercase">Reset Password</h2>
-            <ul class="form-field">
-                <li>
-                    <label>Old password:</label>
-                    <input type="password"/>
-                </li>
-                <li>
-                    <label>New password:</label>
-                    <input type="password"/>
-                </li>
-                <li>
-                    <label>Retype New password:</label>
-                    <input type="password"/>
-                </li>
-                <li class="btn-area">
-                    <button class="btn mid-yellow border-btn italic uppercase">Save</button>
-                </li>
-            </ul>
+            <form name="resetForm" ng-submit="submitForm()" novalidate>
+	            <ul class="form-field">
+	                <li>
+	                    <label>Old password:</label>
+	                    <input type="password" name="oldPassword" ng-model="oldPwd" required />
+	                    <div class="error" ng-messages="resetForm.oldPassword.$error"  ng-if='resetForm.oldPassword.$dirty'>
+							<label ng-message="required">Old password is required.</label>
+						</div>
+	                </li>
+	                <li>
+	                    <label>New password:</label>
+	                    <input type="password" data-ng-model="newPwd" required name="password" />
+	                    <div class="error" ng-messages="resetForm.password.$error"  ng-if='resetForm.password.$dirty'>
+							<label ng-message="required">New password is required.</label>
+						</div>
+	                </li>
+	                <li>
+	                    <label>Retype New password:</label>
+	                    <input type="password" ng_model="newPwd_verify" name="confirm_password" required data-password-verify="newPwd"/>
+	                    <div class="error" ng-messages="resetForm.confirm_password.$error"  ng-if='resetForm.confirm_password.$dirty'>
+							<label ng-message="required">Retype New password is required.</label>
+							<label ng-message="passwordVerify">Fields are not equal.</label>
+						</div>
+	                </li>
+	                <li class="btn-area">
+	                    <button type="submit" class="btn mid-yellow border-btn italic uppercase" ng-disabled="resetForm.$invalid">Save</button>
+	                </li>
+	            </ul>
+            </form>
             <hr />
         </div>
     </div>
