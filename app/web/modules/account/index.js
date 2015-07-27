@@ -1,9 +1,9 @@
 angular.module('webapp.account')
 
-.controller('InfoCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
+.controller('InfoCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL, AuthTokenService) {
 	
 	/* params */
-	$scope.cid = $stateParams.cid;	
+	$scope.cid = AuthTokenService.getCustomerId();	
 		
 	/* functions */
 	$scope.getAccountInfo = function(){
@@ -52,10 +52,10 @@ angular.module('webapp.account')
 	})();
 
 })
-.controller('TransactionCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
+.controller('TransactionCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL, AuthTokenService) {
 	
 	/* params */
-	$scope.cid = $stateParams.cid;	
+	$scope.cid = AuthTokenService.getCustomerId();	
 	$scope.page = 1;
 	$scope.pageSize = 10;
 	$scope.isClickTopup = false;
@@ -143,10 +143,10 @@ angular.module('webapp.account')
 	})();
 		
 })
-.controller('ResetCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
+.controller('ResetCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL, AuthTokenService) {
 	
 	/* params */
-	$scope.cid = $stateParams.cid;	
+	$scope.cid = AuthTokenService.getCustomerId();	
 	
 	/* funciotn */
 	$scope.submitForm = function(){
@@ -165,10 +165,10 @@ angular.module('webapp.account')
 	};
 	
 })
-.controller('SecurityCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
+.controller('SecurityCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL, AuthTokenService) {
 	
 	/* params */
-	$scope.cid = $stateParams.cid;	
+	$scope.cid = AuthTokenService.getCustomerId();	
 	
 	/* funciotn */
 	$scope.getQuestionList = function(){

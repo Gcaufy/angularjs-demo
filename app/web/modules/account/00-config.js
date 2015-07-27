@@ -2,22 +2,22 @@ angular.module('webapp.account', [])
 .config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('app.account', {
-		url : 'account/{cid}',
+		url : 'account',
 		templateUrl : 'web/modules/account/member_myacc_01.html',
 		controller: 'InfoCtrl'
 	});
     $stateProvider.state('app.transaction', {
-        url : 'transaction/{cid}',
+        url : 'transaction',
         templateUrl : 'web/modules/account/member_myacc_02.html',
         controller: 'TransactionCtrl'
     });
     $stateProvider.state('app.acconut.reset', {
-        url : '/reset/{cid}',
+        url : '/reset',
         templateUrl : 'web/modules/account/member_myacc_03.html',
         controller: 'ResetCtrl'
     });
     $stateProvider.state('app.acconut.security', {
-        url : '/security/{cid}',
+        url : '/security',
         templateUrl : 'web/modules/account/member_myacc_04.html',
         controller: 'SecurityCtrl'
     });

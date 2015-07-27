@@ -91,7 +91,7 @@
                         <ul>
                             <li ng-repeat="train in trains">
                                 <label>{{train.rightType}}</label>
-                                <span>{{train.inputValue}}</span>
+                                <span>{{train.inputValue | accountRightsFilter}}</span>
                             </li>                           
                         </ul>
                     </div>
@@ -102,7 +102,7 @@
                     <ul>
 	                    <li ng-repeat="other in others">
 	                        <label>{{other.rightType}}</label>
-	                        <span>{{other.inputValue}}</span>
+	                        <span>{{other.inputValue | accountRightsFilter}}</span>
 	                    </li> 
                     </ul>
                 </div>
