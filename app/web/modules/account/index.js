@@ -4,13 +4,9 @@ angular.module('webapp.account')
 	
 	/* params */
 	$scope.cid = $stateParams.cid;	
-	
-	/* start */
-	$scope.getAccountInfo();
 		
 	/* functions */
 	$scope.getAccountInfo = function(){
-		
 		var resource = $resource(ACCOUNT_URL.GET_ACCOUNT_INFO,{cid:$scope.cid});
 		resource.get(function(data){
 			if(data.returnCode === '0'){				
@@ -49,6 +45,12 @@ angular.module('webapp.account')
 	$scope.goTransaction = function(){
 		$state.go('app.transaction',{"cid":$scope.cid});
 	};
+	
+	/* start */
+	(function _init(){
+		$scope.getAccountInfo();
+	})();
+
 })
 .controller('TransactionCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
 	
@@ -56,6 +58,7 @@ angular.module('webapp.account')
 	$scope.cid = $stateParams.cid;	
 	$scope.page = 1;
 	$scope.pageSize = 10;
+	$scope.isClickTopup = false;
 	$scope.conditionList = [
 	                        {
 	                        	'text':'Last 10 Times',
@@ -82,14 +85,6 @@ angular.module('webapp.account')
 			"isAscending" : 'false'				
 	};
 			
-	/* start */
-	_init();
-	
-	function _init(){
-		$scope.getBanlance();
-		$scope.getVirtualAccount();
-		$scope.getTransactionInfo(condition);
-	}
 	
 	/* functions */
 	$scope.getBanlance = function(){
@@ -132,7 +127,21 @@ angular.module('webapp.account')
 		$scope.getTransactionInfo(params);		
 	};
 	
-	/** lack top-up click function here */	
+	$scope.clickTopup = function(){
+		$scope.isClickTopup = true;
+	};
+	
+	$scope.submitForm = function(){
+		console.log("you click submit button");
+	};
+		
+	/* start */
+	(function _init(){
+		$scope.getBanlance();
+		$scope.getVirtualAccount();
+		$scope.getTransactionInfo(condition);
+	})();
+		
 })
 .controller('ResetCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL) {
 	
@@ -161,14 +170,7 @@ angular.module('webapp.account')
 	/* params */
 	$scope.cid = $stateParams.cid;	
 	
-	/* start */
-	_init();
-	
 	/* funciotn */
-	function _init(){
-		$scope.getQuestionList();
-	}
-	
 	$scope.getQuestionList = function(){
 		
 	};
@@ -177,5 +179,10 @@ angular.module('webapp.account')
 			
 	};
 	
-})
+	/* start */
+	(function _init(){
+		$scope.getQuestionList();
+	})();
+		
+});
 
