@@ -4,7 +4,7 @@ angular.module('webapp.login', [])
 	$stateProvider.state('app.login1', {
 		url : 'login1',
 		templateUrl : 'web/modules/login/index.html',
-		controller: 'IndexCtrl'
+		controller: 'LoginCtrl'
 	});
     $stateProvider.state('app.login2', {
         url : 'login2',

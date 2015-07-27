@@ -20,5 +20,5 @@ angular.module('webapp.account')
 		});
 	};
 
-	_init();
+	// _init();
 });
