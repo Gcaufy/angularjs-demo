@@ -139,7 +139,7 @@ angular.module('webapp.account')
 		var resource = $resource(ACCOUNT_URL.TOP_UP,{});	
 		resource.save(params,function(data){
 			if(data.returnCode === '0'){					
-				$scope.virtualAccount = data.data.accNo;
+				window.open(data.data.redirectUrl); 
 			}
 		});
 	};
@@ -159,12 +159,13 @@ angular.module('webapp.account')
 .controller('ResetCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL, AuthTokenService) {
 	
 	/* params */
-	$scope.cid = AuthTokenService.getCustomerId();	
+	$scope.cid = AuthTokenService.getCustomerId();
+	$scope.userId = AuthTokenService.getId();
 	
 	/* funciotn */
 	$scope.submitForm = function(){
 		var params = {
-				"userId" : $scope.cid,
+				"userId" : $scope.userId,
 				"oldPsw" : $scope.oldPwd,
 				"newPsw" : $scope.newPwd,
 				"repeatPsw" : $scope.newPwd_verify			
@@ -173,6 +174,8 @@ angular.module('webapp.account')
 		resource.save(params,function(data){
 			if(data.returnCode === '0'){					
 				alertify.success('Change Success');
+			}else{
+				alertify.error(data.errorMessageEN);
 			}
 		});		
 	};
