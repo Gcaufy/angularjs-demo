@@ -1,0 +1,94 @@
+<section>
+    <div class="main clearfix">
+        <div class="left-sidebar">
+            <ul class="list">
+                <li><a href="javascript:;">My Profile</a></li>
+                <li><a href="javascript:;">My Account</a></li>
+                <li><a href="javascript:;">Day pass</a></li>
+                <li><a href="javascript:;">Dependent Members</a></li>
+            </ul>
+        </div>
+        <div class="right-sidebar">
+            <ul class="nav clearfix">
+                <li><a href="javascript:;">dashboard</a></li>
+                <li>
+                    <a href="javascript:;">
+                        <p>My</p>
+                        <p>Booking</p>
+                    </a>
+                </li>
+                <li><a href="javascript:;">Facilities</a></li>
+                <li><a href="javascript:;">training</a></li>
+                <li><a href="javascript:;">Events</a></li>
+            </ul>
+
+            <div class="breadcrumb">
+                <a href="#">My account</a>
+                <span>&gt;</span>
+                <a href="#">Set security question </a>
+            </div>
+
+            <ul class="tabs clearfix">
+                <li>
+                    <a href="javascript:;" ng-click="goAccountInfo()"><i class="icon icon-account_gray"></i>Account Info</a>
+                    <i class="narrow bottom"></i>
+                </li>
+                <li class="active">
+                    <a href="javascript:;"><i class="icon icon-transaction_brown"></i>Transaction</a>
+                    <i class="narrow bottom"></i>
+                </li>
+            </ul>
+
+            <div class="fragment">
+                <h3>My Balance : {{balance}}</h3>
+                <form name="topupForm" ng-submit="submitForm()" novalidate>
+	                <div class="txt-center">
+	                    <button class="btn mid-yellow border-btn" ng-show="!isClickTopup" ng-click="clickTopup()">Top up with Credit Card</button>
+	                    <input type="text" ng-model="amount" class="" name="amount" ng-show="isClickTopup" required /><button class="" ng-show="isClickTopup" type="submit" ng-disabled="topupForm.$invalid">Submit</button>
+	                    <div class="error" ng-messages="topupForm.amount.$error"  ng-if='resetForm.amount.$dirty && resetForm.amount.$invalid'>
+							<label ng-message="required">Amount is required.</label>
+						</div>
+	                    <p class="first-child">or</p>
+	                    <p>Top up with Standard Charted Virtual Account</p>
+	                    <p>My Virtual Account # <span>{{virtualAccount}}</span></p>
+	                </div>
+                </form>
+            </div>
+            <hr />
+            <div class="data">
+                <h3>Transaction </h3>
+                <div class="filter-area clearfix">
+                    <div class="filter left">
+                        <span>SHOWING</span>
+                        <select ng-model="listShow" ng-change="conditionSearch()" ng-options="item.text for item in conditionList" ng-init="listShow = conditionList[0]"></select>
+                    </div>
+                    <div class="pagination right">
+                        <span>page</span>
+                        <a class="active" href="javascript:;">1</a>
+                        <a href="javascript:;">2</a>
+                        <a href="javascript:;">...</a>
+                        <a href="javascript:;">3</a>
+                    </div>
+                </div>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th width="30%">Date</th>
+                            <th width="40%">Item</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="transaction in transactions">
+                    		<td>{{transaction.transactionTimestamp}}</td>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.paidAmount}}</td>
+                    	</tr>                      
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</section>

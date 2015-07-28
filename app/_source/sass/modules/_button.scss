@@ -106,15 +106,29 @@
 // buttons
 .btn {
   font-size: 24px;
-  height: 30px;
+  min-height: 30px;
   line-height: 30px;
   text-align: center;
   display: inline-block;
   color: $white;
-  text-transform: uppercase;
+  margin: 28px 0;
 
   &.mid-yellow {
     background-color: $yellow;
+  }
+  &.border-btn {
+    padding: 4px 28px;
+    border-bottom: 3px solid $brown;
+    font-size: 18px;
+    font-family: "Constantia";
+    margin-left: 32px;
+
+    &:first-child {
+      margin-left: 0 !important;
+    }
+    &.first-child {
+      margin-left: 20px !important;
+    }
   }
 
   &.mid {
@@ -132,52 +146,3 @@
 
 
 
-.nav {
-  & li {
-    float: left;
-    margin-left: 47px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    >a {
-      width: 120px;
-      height: 120px;
-      display: table-cell;
-      color: $white;
-      text-align: center;
-      vertical-align: middle;
-      background-color: $light-grey;
-      opacity: .5;
-      filter: alpha(opacity=50);
-      border-radius: 100px;
-      text-transform: uppercase;
-
-      >span {
-        width: 120px;
-        height: auto;
-        display: inherit;
-      }
-
-      &:hover {
-        background-color: $dark-red;
-      }
-    } // end a
-  } // end li
-} // end nav
-
-.list {
-  >li {
-    height: 54px;
-    >a {
-      text-transform: uppercase;
-      color: $light-grey;
-
-      &:hover {
-        opacity: .8;
-        filter: alpha(opacity=80);
-      }
-    } // end a
-  } // end li
-} // end list

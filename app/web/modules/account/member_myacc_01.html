@@ -21,7 +21,93 @@
                 <li><a href="javascript:;">training</a></li>
                 <li><a href="javascript:;">Events</a></li>
             </ul>
-        </div>
 
+            <div class="breadcrumb">
+                <a href="#">My account</a>
+            </div>
+
+            <ul class="tabs clearfix">
+                <li class="active">
+                    <a href="javascript:;"><i class="icon icon-account_brown"></i>Account Info</a>
+                    <i class="narrow bottom"></i>
+                </li>
+                <li>
+                    <a href="javascript:;" ng-click="goTransaction()"><i class="icon icon-transaction_gray"></i>Transaction</a>
+                    <i class="narrow bottom"></i>
+                </li>
+            </ul>
+
+            <ul class="info">
+                <li>
+                    <label>Service Account:</label>
+                    <span>{{serviceAcconut}}</span>
+                </li>
+                <li>
+                    <label>Service Plan:</label>
+                    <span>{{servicePlan}}</span>
+                </li>
+                <li>
+                    <label>Member Type:</label>
+                    <span>{{memberType}}</span>
+                </li>
+                <li>
+                    <label>Effective Date:</label>
+                    <span>{{effectiveDate}}</span>
+                </li>
+                <li>
+                    <label>Expiry Date:</label>
+                    <span>{{expiryDate}}</span>
+                </li>
+                <li>
+                    <label>Credit Limit:</label>
+                    <span>{{creditLimit}}</span>
+                </li>
+                <li>
+                    <label>Day Pass Daily Quota:</label>
+                    <span>{{dayPassDailyQuota}}</span>
+                </li>
+            </ul>
+
+            <button class="btn mid-yellow border-btn italic uppercase first-child" ng-click="resetPwd()">Reset password</button>
+            <button class="btn mid-yellow border-btn italic uppercase" ng-click="setQuestion()">Set security question</button>
+
+            <div class="fragment account clearfix">
+                <h2 class="uppercase">
+                    <i class="icon icon-users"></i>
+                    Usage Right
+                </h2>
+                <block class="clearfix">
+                    <div>
+                        <h3>Facilities:</h3>
+                        <ul>
+                        	<li ng-repeat="facility in facilities">
+                        		<label>{{facility.facilityTypeCode}}</label>
+                                <span>{{facility.permission}}</span>	
+                        	</li>                       
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h3>Training:</h3>
+                        <ul>
+                            <li ng-repeat="train in trains">
+                                <label>{{train.rightType}}</label>
+                                <span>{{train.inputValue | accountRightsFilter}}</span>
+                            </li>                           
+                        </ul>
+                    </div>
+                </block>
+
+                <div class="clearfix">
+                    <h3>Others:</h3>
+                    <ul>
+	                    <li ng-repeat="other in others">
+	                        <label>{{other.rightType}}</label>
+	                        <span>{{other.inputValue | accountRightsFilter}}</span>
+	                    </li> 
+                    </ul>
+                </div>
+            </div>
+            <hr />
+        </div>
     </div>
 </section>

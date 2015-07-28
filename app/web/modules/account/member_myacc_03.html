@@ -1,0 +1,74 @@
+<section>
+    <div class="main clearfix">
+        <div class="left-sidebar">
+            <ul class="list">
+                <li><a href="javascript:;">My Profile</a></li>
+                <li><a href="javascript:;">My Account</a></li>
+                <li><a href="javascript:;">Day pass</a></li>
+                <li><a href="javascript:;">Dependent Members</a></li>
+            </ul>
+        </div>
+        <div class="right-sidebar">
+            <ul class="nav clearfix">
+                <li><a href="javascript:;">dashboard</a></li>
+                <li>
+                    <a href="javascript:;">
+                        <p>My</p>
+                        <p>Booking</p>
+                    </a>
+                </li>
+                <li><a href="javascript:;">Facilities</a></li>
+                <li><a href="javascript:;">training</a></li>
+                <li><a href="javascript:;">Events</a></li>
+            </ul>
+
+            <div class="breadcrumb">
+                <a href="#">My account</a>
+                <span>&gt;</span>
+                <a href="#">Reset password</a>
+            </div>
+
+            <ul class="tabs clearfix">
+                <li class="active">
+                    <a href="javascript:;"><i class="icon icon-account_brown"></i>Account Info</a>
+                    <i class="narrow bottom"></i>
+                </li>
+                <li>
+                    <a href="javascript:;" ng-click="goTransaction()"><i class="icon icon-transaction_gray"></i>Transaction</a>
+                    <i class="narrow bottom"></i>
+                </li>
+            </ul>
+            <h2 class="sub-title uppercase">Reset Password</h2>
+            <form name="resetForm" ng-submit="submitForm()" novalidate>
+	            <ul class="form-field">
+	                <li>
+	                    <label>Old password:</label>
+	                    <input type="password" name="oldPassword" ng-model="oldPwd" required />
+	                    <div class="error" ng-messages="resetForm.oldPassword.$error"  ng-if='resetForm.oldPassword.$dirty && resetForm.oldPassword.$invalid'>
+							<label ng-message="required">Old password is required.</label>
+						</div>
+	                </li>
+	                <li>
+	                    <label>New password:</label>
+	                    <input type="password" data-ng-model="newPwd" required name="password" />
+	                    <div class="error" ng-messages="resetForm.password.$error"  ng-if='resetForm.password.$dirty && resetForm.password.$invalid'>
+							<label ng-message="required">New password is required.</label>
+						</div>
+	                </li>
+	                <li>
+	                    <label>Retype New password:</label>
+	                    <input type="password" ng_model="newPwd_verify" name="confirm_password" required data-password-verify="newPwd"/>
+	                    <div class="error" ng-messages="resetForm.confirm_password.$error"  ng-if='resetForm.confirm_password.$dirty && resetForm.confirm_password.$invalid'>
+							<label ng-message="required">Retype New password is required.</label>
+							<label ng-message="passwordVerify">Fields are not equal.</label>
+						</div>
+	                </li>
+	                <li class="btn-area">
+	                    <button type="submit" class="btn mid-yellow border-btn italic uppercase" ng-disabled="resetForm.$invalid">Save</button>
+	                </li>
+	            </ul>
+            </form>
+            <hr />
+        </div>
+    </div>
+</section>

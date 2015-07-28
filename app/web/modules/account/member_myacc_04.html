@@ -1,0 +1,74 @@
+<section>
+    <div class="main clearfix">
+        <div class="left-sidebar">
+            <ul class="list">
+                <li><a href="javascript:;">My Profile</a></li>
+                <li><a href="javascript:;">My Account</a></li>
+                <li><a href="javascript:;">Day pass</a></li>
+                <li><a href="javascript:;">Dependent Members</a></li>
+            </ul>
+        </div>
+        <div class="right-sidebar">
+            <ul class="nav clearfix">
+                <li><a href="javascript:;">dashboard</a></li>
+                <li>
+                    <a href="javascript:;">
+                        <p>My</p>
+                        <p>Booking</p>
+                    </a>
+                </li>
+                <li><a href="javascript:;">Facilities</a></li>
+                <li><a href="javascript:;">training</a></li>
+                <li><a href="javascript:;">Events</a></li>
+            </ul>
+
+            <div class="breadcrumb">
+                <a href="#">My account</a>
+                <span>&gt;</span>
+                <a href="#">Set security question </a>
+            </div>
+
+            <ul class="tabs clearfix">
+                <li class="active">
+                    <a href="javascript:;"><i class="icon icon-account_brown"></i>Account Info</a>
+                    <i class="narrow bottom"></i>
+                </li>
+                <li>
+                    <a href="javascript:;" ng-click="goTransaction()"><i class="icon icon-transaction_gray"></i>Transaction</a>
+                    <i class="narrow bottom"></i>
+                </li>
+            </ul>
+            <h2 class="sub-title uppercase">set security question</h2>
+            <form name="questionForm" ng-submit="submitForm()" novalidate>
+	            <ul class="form-field">
+	                <li>
+	                    <label>Select question1:</label>
+	                    <select ng-model="Q1" ng-options="item.codeDisplay for item in questionList"></select>
+	                </li>
+	                <li>
+	                    <label>Answer:</label>
+	                    <input class="large-width" ng-model="A1" name="A1" type="text" required />
+	                    <div class="error" ng-messages="questionForm.A1.$error"  ng-if='questionForm.A1.$dirty && questionForm.A1.$invalid'>
+							<label ng-message="required">Question1's answer is required.</label>
+						</div>
+	                </li>
+	                <li>
+	                    <label>Select question2:</label>
+	                    <select ng-model="Q2" ng-options="item.codeDisplay for item in questionList"></select>
+	                </li>
+	                <li>
+	                    <label>Answer:</label>
+	                    <input ng-model="A2" name="A2" class="large-width" type="text" required />
+	                    <div class="error" ng-messages="questionForm.A2.$error"  ng-if='questionForm.A2.$dirty && questionForm.A2.$invalid'>
+							<label ng-message="required">Question2's answer is required.</label>
+						</div>
+	                </li>
+	                <li class="btn-area">
+	                    <button class="btn mid-yellow border-btn italic uppercase" ng-disabled="questionForm.$invalid">Save</button>
+	                </li>
+	            </ul>
+            </form>
+            <hr />
+        </div>
+    </div>
+</section>
