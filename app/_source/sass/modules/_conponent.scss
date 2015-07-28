@@ -932,14 +932,11 @@ ul.info-detail {
       font-size: 17px;
       color: $yellow;
 
-      span, a, h3 {
+      h5 {
         font-family: "franklingothicbook";
         font-size: 17px;
-        color: $yellow;
       }
     }
-
-
   }
 }
 .mask {
@@ -967,6 +964,12 @@ ul.info-detail {
   .record-list {
     .detail {
       width: 532px;
+
+      span, a, h3 {
+        font-family: "franklingothicbook";
+        font-size: 17px;
+        color: $yellow;
+      }
     }
   }
   &.mid {
