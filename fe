@@ -131,7 +131,9 @@ function func_run() {
 }
 
 function func_package() {
-	tar -cvzf "../$PROJECT_NAME.tar.gz" --exclude=.git --exclude=.sass-cache --exclude=node_modules *
+	cd app
+	tar -cvzf "../../$PROJECT_NAME.tar.gz" --exclude=_* --exclude=web/*.js *
+	cd ..
 }
 
 function func_server() {
