@@ -1,4 +1,4 @@
-angular.module('webapp.login')
+angular.module('webapp.login') 
 
 .factory("LOGIN_URLS", function(urlHelper) {
 	return urlHelper({

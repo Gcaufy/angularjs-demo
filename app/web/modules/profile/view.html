@@ -24,22 +24,26 @@
 
             <div class="breadcrumb">
                 <a href="#">My Profile</a>
-                <span>&gt;</span>
-                <a href="#">edit profile</a>
+               
             </div>
             <div class="fragment no-spacing">
                 <div class="clearfix">
                     <div class="photo-area left">
-                        <img src="assets/img/event_detail_img.png" />
+
+                      
+                        <div ng-if="customer.portraitPhoto" >
+                            <img style="width: 160px; height: 160px;" ng-src="{{getFileUrl+customer.portraitPhoto}}" gta-broken-image />
+                        </div> 
+
                     </div>
                     <ul class="info left">
                         <li>
                             <label>User Name:</label>
-                            <span>Mary Choi</span>
+                            <span>{{customer.surname}} {{customer.givenName}}</span>
                         </li>
                         <li>
                             <label>Academy ID:</label>
-                            <span>8812312</span>
+                            <span>{{customerMember.academyNo}}</span>
                         </li>
                     </ul>
 
@@ -49,44 +53,44 @@
                     <ul class="info-list clearfix">
                         <li>
                             <label>Date of Birth:</label>
-                            <span>1980/12/25</span>
+                            <span>{{customer.dateOfBirth}}</span>
                         </li>
                         <li>
                             <label>Nationality:</label>
-                            <span>Hong Kong</span>
+                            <span>{{customer.nationality}}</span>
                         </li>
                         <li>
                             <label>Sex:</label>
-                            <span>Female</span>
+                            <span>{{customer.gender}}</span>
                         </li>
                         <li>
                             <label>Mobile phone #:</label>
-                            <span>+852 7778878</span>
+                            <span>{{customer.phoneMobile}}</span>
                         </li>
                         <li>
                             <label>Business phone #:</label>
-                            <span>+852 26263839</span>
+                            <span>{{customer.phoneBusiness}}</span>
                         </li>
                         <li>
                             <label>Home phone #:</label>
-                            <span>+852 45657890</span>
+                            <span>{{customer.phoneHome}}</span>
                         </li>
                     </ul>
                     <ul class="info-list clearfix">
                         <li>
                             <label>Email:</label>
-                            <span>marychoi@gmail.com</span>
+                            <span>{{customer.contactEmail}}</span>
                         </li>
                         <li class="email">
                             <label>Postal Address:</label>
-                            <span class="inline-element">123 street, 15/F,</span>
-                            <span>123 street, 15/F,</span>
-                            <span>123 street, 15/F,</span>
+                            <span class="inline-element">{{customer.postalAddress1}}</span>
+                            <span>{{customer.postalAddress2}}</span>
+                            <span>{{customer.postalDistrict}}</span>
                         </li>
 
                         <li>
                             <label>Business Nature:</label>
-                            <span>Marketing</span>
+                            <span>{{customer.businessNature}}</span>
                         </li>
                     </ul>
                 </div>
@@ -96,27 +100,29 @@
                         <ul class="info-list clearfix">
                             <li>
                                 <label>Position title:</label>
-                                <span>Female</span>
+                                <span>
+                                    {{customer.customerAdditionInfos[0].customerInput}}
+                                    </span>
                             </li>
                             <li>
                                 <label>Highest School:</label>
-                                <span>Female</span>
+                                <span>{{customer.customerAdditionInfos[1].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Graduation Year:</label>
-                                <span>Female</span>
+                                <span>{{customer.customerAdditionInfos[2].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Highest Education:</label>
-                                <span>+852 7778878</span>
+                                <span>{{customer.customerAdditionInfos[3].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Vehicle License Plate:</label>
-                                <span>+852 26263839</span>
+                                <span>{{customer.customerAdditionInfos[4].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Marriage:</label>
-                                <span>+852 45657890</span>
+                                <span>{{customer.customerAdditionInfos[5].customerInput}}</span>
                             </li>
                         </ul>
                     </div>
@@ -125,23 +131,23 @@
                         <ul class="info-list clearfix">
                             <li>
                                 <label>Accommodation type:</label>
-                                <span>1980/12/25</span>
+                                <span>{{customer.customerAdditionInfos[6].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Food and Beverage:</label>
-                                <span>Hong Kong</span>
+                                <span>{{customer.customerAdditionInfos[7].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Hobbies/ Sports:</label>
-                                <span>Female</span>
+                                <span>{{customer.customerAdditionInfos[8].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Food Allergy:</label>
-                                <span>+852 7778878</span>
+                                <span>{{customer.customerAdditionInfos[9].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Vegetarian:</label>
-                                <span>+852 26263839</span>
+                                <span>{{customer.customerAdditionInfos[10].customerInput}}</span>
                             </li>
                         </ul>
                     </div>
