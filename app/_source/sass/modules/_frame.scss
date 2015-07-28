@@ -57,6 +57,15 @@ input[type=text], input[type=password], input[type=email], select {
     }
   } // end section
 
+  .lg-content {
+    width: 1550px;
+    margin: 0 auto;
+
+    >span {
+      cursor: pointer;
+    }
+  } // end lg-content
+
   .content {
     width: 1060px;
     margin: 0 auto;
@@ -228,6 +237,17 @@ input[type=text], input[type=password], input[type=email], select {
 .red {
   color: $red;
 }
+.light-yellow {
+  color: $lighter4-yellow;
+}
+.purple {
+  color: $purple;
+}
+.more {
+  font-family: "franklingothicbook";
+  font-size: 15px;
+  color: $red;
+}
 .txt {
   color: $lighter1-grey;
   font-size: 15px;
@@ -275,7 +295,8 @@ h1 {
 .demo {
   position: absolute;
   background: $white;
-  top: 0;
+  top: 100px;
+  opacity: .5;
 
   span {
     margin: 0 20px;

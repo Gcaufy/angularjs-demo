@@ -16,7 +16,24 @@
 	</head>
 	<body>
         <div class="wrapper">
-            <header><img src="assets/img/header.jpg" /></header>
+            <header>
+                <div class="lg-content clearfix">
+                    <span class="log-in grey txt-right right" href="javascript:;">
+                        LOG IN <i class="narrow sm-bottom"></i>
+                        <div class="dropdown">
+                            <i class="narrow top"></i>
+                            <div class="photo-area">
+                                <img src="assets/img/event_detail_img.png" />
+                            </div>
+                            <ul class="top-list txt-center">
+                                <li><a href="javascript:;">My Profile</a> </li>
+                                <li><a href="javascript:;">Log out</a> </li>
+                            </ul>
+                        </div>
+                    </span>
+                </div>
+                <img src="assets/img/header.jpg" />
+            </header>
             <div ui-view></div>
             <footer><img src="assets/img/footer.jpg" /></footer>
         </div>
