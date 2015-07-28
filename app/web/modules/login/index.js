@@ -48,7 +48,9 @@ angular.module('webapp.login')
 				customerInfoResource.get({
 					"userId":userId
 				},function(res){
+					console.log("querying customerId ...");
 					AuthTokenService.setCustomerId(res.data.customerId);
+					$state.go('app.account');
 				});
 				AuthTokenService.setCurrentToken(auth_token);
 				AuthTokenService.setCurrentUserName(userName);
@@ -57,7 +59,9 @@ angular.module('webapp.login')
 				AuthTokenService.setFullName(fullName);
 				AuthTokenService.setCurrentUserNo(userNo);
 				AuthTokenService.setId(userId);
-				$state.go('app.account');
+				
+			}else{
+				alertify.error(data.errorMessageEN);
 			}
 		});
 

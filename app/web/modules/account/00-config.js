@@ -11,13 +11,13 @@ angular.module('webapp.account', [])
         templateUrl : 'web/modules/account/member_myacc_02.html',
         controller: 'TransactionCtrl'
     });
-    $stateProvider.state('app.acconut.reset', {
-        url : '/reset',
+    $stateProvider.state('app.reset', {
+        url : 'reset',
         templateUrl : 'web/modules/account/member_myacc_03.html',
         controller: 'ResetCtrl'
     });
-    $stateProvider.state('app.acconut.security', {
-        url : '/security',
+    $stateProvider.state('app.security', {
+        url : 'security',
         templateUrl : 'web/modules/account/member_myacc_04.html',
         controller: 'SecurityCtrl'
     });
@@ -29,7 +29,9 @@ angular.module('webapp.account', [])
 		'GET_VIRTUAL_ACCONUT' : 'paymentacc/:cid',
 		'GET_BALANCE':'membership/transaction/:cid',
 		'TOP_UP' : 'membership/transaction/topupByCard',
-		'CHANGE_PWD' : 'staffs/changepsw'
+		'CHANGE_PWD' : 'staffs/changepsw',
+		'GET_SECURITY_QUESTION' : 'dropdownlists/pwdquestion',
+		'SAVE_SECURITY_QUESTION' : 'member/securityQuestion'
 	});
 })
 .directive("passwordVerify", function() {

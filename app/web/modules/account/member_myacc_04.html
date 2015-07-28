@@ -34,7 +34,7 @@
                     <i class="narrow bottom"></i>
                 </li>
                 <li>
-                    <a href="javascript:;"><i class="icon icon-transaction_gray"></i>Transaction</a>
+                    <a href="javascript:;" ng-click="goTransaction()"><i class="icon icon-transaction_gray"></i>Transaction</a>
                     <i class="narrow bottom"></i>
                 </li>
             </ul>
@@ -42,14 +42,26 @@
             <form name="questionForm" ng-submit="submitForm()" novalidate>
 	            <ul class="form-field">
 	                <li>
-	                    <label>Select question:</label>
-	                    <select >
-	                        <option selected>What is the name of your first pet?</option>
-	                    </select>
+	                    <label>Select question1:</label>
+	                    <select ng-model="Q1" ng-options="item.codeDisplay for item in questionList"></select>
 	                </li>
 	                <li>
 	                    <label>Answer:</label>
-	                    <input class="large-width" type="text" required />
+	                    <input class="large-width" ng-model="A1" name="A1" type="text" required />
+	                    <div class="error" ng-messages="questionForm.A1.$error"  ng-if='questionForm.A1.$dirty && questionForm.A1.$invalid'>
+							<label ng-message="required">Question1's answer is required.</label>
+						</div>
+	                </li>
+	                <li>
+	                    <label>Select question2:</label>
+	                    <select ng-model="Q2" ng-options="item.codeDisplay for item in questionList"></select>
+	                </li>
+	                <li>
+	                    <label>Answer:</label>
+	                    <input ng-model="A2" name="A2" class="large-width" type="text" required />
+	                    <div class="error" ng-messages="questionForm.A2.$error"  ng-if='questionForm.A2.$dirty && questionForm.A2.$invalid'>
+							<label ng-message="required">Question2's answer is required.</label>
+						</div>
 	                </li>
 	                <li class="btn-area">
 	                    <button class="btn mid-yellow border-btn italic uppercase" ng-disabled="questionForm.$invalid">Save</button>

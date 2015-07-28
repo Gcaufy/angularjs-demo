@@ -30,7 +30,7 @@
 
             <ul class="tabs clearfix">
                 <li>
-                    <a href="javascript:;"><i class="icon icon-account_gray"></i>Account Info</a>
+                    <a href="javascript:;" ng-click="goAccountInfo()"><i class="icon icon-account_gray"></i>Account Info</a>
                     <i class="narrow bottom"></i>
                 </li>
                 <li class="active">
@@ -45,7 +45,7 @@
 	                <div class="txt-center">
 	                    <button class="btn mid-yellow border-btn" ng-show="!isClickTopup" ng-click="clickTopup()">Top up with Credit Card</button>
 	                    <input type="text" ng-model="amount" class="" name="amount" ng-show="isClickTopup" required /><button class="" ng-show="isClickTopup" type="submit" ng-disabled="topupForm.$invalid">Submit</button>
-	                    <div class="error" ng-messages="topupForm.amount.$error"  ng-if='resetForm.amount.$dirty'>
+	                    <div class="error" ng-messages="topupForm.amount.$error"  ng-if='resetForm.amount.$dirty && resetForm.amount.$invalid'>
 							<label ng-message="required">Amount is required.</label>
 						</div>
 	                    <p class="first-child">or</p>
@@ -60,9 +60,7 @@
                 <div class="filter-area clearfix">
                     <div class="filter left">
                         <span>SHOWING</span>
-                        <select ng-model="listShow" ng-change="conditionSearch()" ng-init="">
-                        	<option ng-repeat="item.text for itme in conditionList"></option>
-                        </select>
+                        <select ng-model="listShow" ng-change="conditionSearch()" ng-options="item.text for item in conditionList" ng-init="listShow = conditionList[0]"></select>
                     </div>
                     <div class="pagination right">
                         <span>page</span>

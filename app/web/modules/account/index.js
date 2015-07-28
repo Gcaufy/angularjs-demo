@@ -35,15 +35,15 @@ angular.module('webapp.account')
 	};
 	
 	$scope.resetPwd = function(){
-		$state.go('app.acconut.reset',{"cid":$scope.cid});
+		$state.go('app.reset');
 	};
 	
 	$scope.setQuestion = function(){
-		$state.go('app.acconut.security',{"cid":$scope.cid});
+		$state.go('app.security');
 	};
 	
 	$scope.goTransaction = function(){
-		$state.go('app.transaction',{"cid":$scope.cid});
+		$state.go('app.transaction');
 	};
 	
 	/* start */
@@ -91,7 +91,7 @@ angular.module('webapp.account')
 		var resource = $resource(ACCOUNT_URL.GET_BALANCE,{cid:$scope.cid});	
 		resource.get(function(data){
 			if(data.returnCode === '0'){					
-				$scope.balance = data.data.balance;
+				$scope.balance = data.data;
 			}
 		});		
 	};
@@ -100,7 +100,7 @@ angular.module('webapp.account')
 		var resource = $resource(ACCOUNT_URL.GET_TRANSACTION_RECORDS,{});	
 		resource.get(params,function(data){
 			if(data.returnCode === '0'){					
-				$scope.transactions = data.list;
+				$scope.transactions = data.data.list;
 			}
 		});		
 	};
@@ -132,7 +132,20 @@ angular.module('webapp.account')
 	};
 	
 	$scope.submitForm = function(){
-		console.log("you click submit button");
+		var params = {
+				"customerId":$scope.cid,
+				"topUpAmount":$scope.amount
+		};
+		var resource = $resource(ACCOUNT_URL.TOP_UP,{});	
+		resource.save(params,function(data){
+			if(data.returnCode === '0'){					
+				$scope.virtualAccount = data.data.accNo;
+			}
+		});
+	};
+	
+	$scope.goAccountInfo = function(){
+		$state.go('app.account');
 	};
 		
 	/* start */
@@ -164,19 +177,55 @@ angular.module('webapp.account')
 		});		
 	};
 	
+	$scope.goTransaction = function(){
+		$state.go('app.transaction');
+	};
+	
 })
 .controller('SecurityCtrl', function($scope, $resource, $state, $stateParams, ACCOUNT_URL, AuthTokenService) {
 	
 	/* params */
 	$scope.cid = AuthTokenService.getCustomerId();	
+	$scope.userId = AuthTokenService.getId();
 	
 	/* funciotn */
 	$scope.getQuestionList = function(){
-		
+		var resource = $resource(ACCOUNT_URL.GET_SECURITY_QUESTION,{});	
+		resource.get(function(data){
+			if(data.returnCode === '0'){					
+				$scope.questionList = data.data.list;
+				$scope.Q1 = $scope.questionList[0];
+				$scope.Q2 = $scope.questionList[1];
+			}
+		});	
 	};
 	
 	$scope.submitForm = function(){
-			
+		var params = {
+				 "userId": $scope.userId, 
+				 "answers": [
+				        {
+				            "questionNo": '1', 
+				            "code": $scope.Q1.codeValue, 
+				            "answer": $scope.A1
+				        }, 
+				        {
+				            "questionNo": '2', 
+				            "code": $scope.Q2.codeValue, 
+				            "answer": $scope.A2
+				        }
+				 ]				
+		};
+		var resource = $resource(ACCOUNT_URL.SAVE_SECURITY_QUESTION,{});	
+		resource.save(params,function(data){
+			if(data.returnCode === '0'){					
+				alertify.success('Save Success');
+			}
+		});	
+	};
+	
+	$scope.goTransaction = function(){
+		$state.go('app.transaction');
 	};
 	
 	/* start */

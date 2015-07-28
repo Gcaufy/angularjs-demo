@@ -34,7 +34,7 @@
                     <i class="narrow bottom"></i>
                 </li>
                 <li>
-                    <a href="javascript:;"><i class="icon icon-transaction_gray"></i>Transaction</a>
+                    <a href="javascript:;" ng-click="goTransaction()"><i class="icon icon-transaction_gray"></i>Transaction</a>
                     <i class="narrow bottom"></i>
                 </li>
             </ul>
@@ -44,21 +44,21 @@
 	                <li>
 	                    <label>Old password:</label>
 	                    <input type="password" name="oldPassword" ng-model="oldPwd" required />
-	                    <div class="error" ng-messages="resetForm.oldPassword.$error"  ng-if='resetForm.oldPassword.$dirty'>
+	                    <div class="error" ng-messages="resetForm.oldPassword.$error"  ng-if='resetForm.oldPassword.$dirty && resetForm.oldPassword.$invalid'>
 							<label ng-message="required">Old password is required.</label>
 						</div>
 	                </li>
 	                <li>
 	                    <label>New password:</label>
 	                    <input type="password" data-ng-model="newPwd" required name="password" />
-	                    <div class="error" ng-messages="resetForm.password.$error"  ng-if='resetForm.password.$dirty'>
+	                    <div class="error" ng-messages="resetForm.password.$error"  ng-if='resetForm.password.$dirty && resetForm.password.$invalid'>
 							<label ng-message="required">New password is required.</label>
 						</div>
 	                </li>
 	                <li>
 	                    <label>Retype New password:</label>
 	                    <input type="password" ng_model="newPwd_verify" name="confirm_password" required data-password-verify="newPwd"/>
-	                    <div class="error" ng-messages="resetForm.confirm_password.$error"  ng-if='resetForm.confirm_password.$dirty'>
+	                    <div class="error" ng-messages="resetForm.confirm_password.$error"  ng-if='resetForm.confirm_password.$dirty && resetForm.confirm_password.$invalid'>
 							<label ng-message="required">Retype New password is required.</label>
 							<label ng-message="passwordVerify">Fields are not equal.</label>
 						</div>
