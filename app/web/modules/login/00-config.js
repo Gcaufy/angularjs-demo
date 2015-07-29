@@ -26,6 +26,11 @@ angular.module('webapp.login', [])
         templateUrl : 'web/modules/login/index5.html',
         controller: 'IndexCtrl'
     });
+    $stateProvider.state('app.login6', {
+        url : 'login6',
+        templateUrl : 'web/modules/login/index6.html',
+        controller: 'IndexCtrl'
+    });
 })
 .factory("LOGIN_URLS", function(urlHelper) {
     return urlHelper({

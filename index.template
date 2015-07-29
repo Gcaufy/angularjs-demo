@@ -17,7 +17,98 @@
 	</head>
 	<body>
         <div class="wrapper">
-            <header><img src="assets/img/header.jpg" /></header>
+        <div class="overlay mid hide">
+            <div class="close txt-center"><a class="yellow bold" href="javascript:;">CLOSE</a> </div>
+            <div class="main-body">
+                <div class="header">
+                    <h1>Message box</h1>
+                </div>
+                <div class="overlay-content">
+                    <ul class="record-list">
+                        <li class="clearfix">
+                            <img class="left" src="assets/img/event_detail_img.png" width="140" height="100">
+                            <div class="detail">
+                                <div class="clearfix">
+                                    <span class="yellow">July 01, 2015</span>
+                                    <a class="right" href="javascript:;">REMOVE <i class="icon icon-close"></i></a>
+                                </div>
+                                <h3 class="bold">Billy Morgan</h3>
+                                <div class="clearfix">
+                                    <a class="underline" href="">APPROVED TO JOIN!</a>
+                                    <button class="btn sm-yellow right">Pay Now!</button>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img class="left" src="assets/img/event_detail_img.png" width="140" height="100">
+                            <div class="detail">
+                                <div class="clearfix">
+                                    <span class="yellow">July 01, 2015</span>
+                                    <a class="right" href="javascript:;">REMOVE <i class="icon icon-close"></i></a>
+                                </div>
+                                <h3 class="bold">Billy Morgan</h3>
+                                <div class="clearfix">
+                                    <a class="underline" href="">Come and join us!  JOIN!</a>
+                                    <button class="btn sm-yellow right">Join! </button>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img class="left" src="assets/img/event_detail_img.png" width="140" height="100">
+                            <div class="detail">
+                                <div class="clearfix">
+                                    <span class="yellow">July 01, 2015</span>
+                                    <a class="right" href="javascript:;">REMOVE <i class="icon icon-close"></i></a>
+                                </div>
+                                <h3 class="bold">Billy Morgan</h3>
+                                <div class="clearfix">
+                                    <a class="underline" href="">APPROVED TO JOIN!</a>
+                                    <button class="btn sm-yellow right">Pay Now!</button>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <img class="left" src="assets/img/event_detail_img.png" width="140" height="100">
+                            <div class="detail">
+                                <div class="clearfix">
+                                    <span class="yellow">July 01, 2015</span>
+                                    <a class="right" href="javascript:;">REMOVE <i class="icon icon-close"></i></a>
+                                </div>
+                                <h3 class="bold">Billy Morgan</h3>
+                                <div class="clearfix">
+                                    <a class="underline" href="">APPROVED TO JOIN!</a>
+                                    <button class="btn sm-yellow right">Pay Now!</button>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer"></div>
+            </div>
+        </div>
+        <div class="mask hide"></div>
+            <header>
+                <div class="lg-content clearfix">
+                    <span class="log-in grey txt-right right" href="javascript:;">
+                        LOG IN <i class="narrow sm-bottom"></i>
+                        <div class="dropdown">
+                            <i class="narrow top"></i>
+                            <div class="photo-area">
+                                <img src="assets/img/event_detail_img.png" />
+                            </div>
+                            <ul class="top-list txt-center">
+                                <li><a href="javascript:;">My Profile</a> </li>
+                                <li><a href="javascript:;">Log out</a> </li>
+                            </ul>
+                        </div>
+                    </span>
+                </div>
+                <img src="assets/img/header.jpg" />
+            </header>
             <div ui-view></div>
             <footer><img src="assets/img/footer.jpg" /></footer>
         </div>

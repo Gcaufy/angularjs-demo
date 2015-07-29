@@ -1,5 +1,5 @@
 angular.module('webapp.profile')
-.controller('ViewCtrl', function($rootScope, $scope, $resource, $state, $stateParams, MEMBER_PROFILE, SysCodeService) {
+.controller('ViewCtrl', function($rootScope, $scope, $resource, $state, $stateParams, MEMBER_PROFILE, SysCodeService, AuthTokenService) {
 	$scope.nationalityList = SysCodeService.getCodeMapping('NATIONALITY');
 	$scope.loadProfile = function(cid) {
 		if (cid) {
@@ -33,9 +33,9 @@ angular.module('webapp.profile')
 			});
 		}
 	};
-	$scope.loadProfile(1); 
+	$scope.loadProfile(AuthTokenService.getCustomerId()); 
 
 	$scope.checkEditInfoAct = function () {
-		$state.go('app.member_profile_edit',{'cid' : 1});
+		$state.go('app.member_profile_edit',{'cid' : AuthTokenService.getCustomerId()});
 	};
 });
