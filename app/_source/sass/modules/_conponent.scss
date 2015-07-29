@@ -83,6 +83,11 @@
   font-family: "FranklinGothicBook";
   font-size: 15px;
   color: $red;
+  line-height: 40px;
+
+  >span {
+    text-transform: capitalize;
+  }
 
   >a {
     width: 25px;
@@ -102,6 +107,88 @@
 } // end pagination
 
 .tabs {
+  &.course {
+    >li {
+      height: auto;
+      line-height: 24px;
+      background-color: $lighter-yellow;
+      margin-left: 4px;
+      width: 392px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      >a {
+        text-align: center;
+
+        i {
+          float: none;
+          margin: 10px 0 0 0;
+        }
+      }
+    } // end li
+  } // end course
+
+  &.private-coach {
+    >li {
+      line-height: 24px;
+      background-color: $lighter-yellow;
+      margin-left: 4px;
+      width: 394px;
+      height: 222px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.active {
+        width: 384px;
+        border: 4px solid $yellow;
+        height: 214px;
+
+        img {
+          width: 384px;
+          height: 214px;
+          opacity: .6;
+        }
+        h1 {
+          color: $white;
+          text-shadow: 2px 2px 4px $light-grey;
+        }
+      }
+
+      >a {
+        text-align: center;
+
+        i {
+          float: none;
+          margin: 10px 0 0 0;
+        }
+      }
+      h1 {
+        font-family: "constantia";
+        line-height: 220px;
+        color: $yellow;
+      }
+      img {
+        opacity: .6;
+      }
+    } // end li
+  } // end private-coach
+
+  .title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    vertical-align: middle;
+    //            background-color: $white;
+    //            opacity: .4;
+    z-index: 99;
+  }
   >li {
     float: left;
     width: 50%;
@@ -112,6 +199,33 @@
     vertical-align: middle;
     background-color: $lighter3-grey;
     margin-bottom: 20px;
+
+    >ul {
+      >li {
+        float: left;
+        margin-left: 1px;
+
+        >a {
+          position: relative;
+          display: inline-block;
+
+          >img {
+            opacity: .6;
+          }
+          h1 {
+            font-family: "Constantia";
+            color: $white;
+            text-transform: uppercase;
+            line-height: 124px;
+            margin: 0;
+          }
+        }
+
+        &:first-child {
+          margin-left: 4px;
+        }
+      }
+    }
 
     >a {
       display: inline-block;
@@ -156,7 +270,9 @@
     border-right: 10px solid transparent;
   }
   &.top {
-    border-bottom: 10px solid $lighter-yellow;
+    top: -28px;
+    left: 78px;
+    border-bottom: 10px solid $red;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
   }
@@ -169,6 +285,12 @@
     border-left: 10px solid $lighter-yellow;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
+  }
+  &.sm-bottom {
+    top: 6px;
+    border-top: 6px solid $black;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
   }
 } // end narrow
 
@@ -207,23 +329,21 @@
     }
   } // end h2
 
-//  >h3 {
-//    font-family: "FranklinGothicBook";
-//    color: $red;
-//    margin-top: 6px;
-//  }
-
   &.account {
     div {
       background-color: $white;
       padding: 10px 10px 20px 10px;
       margin-bottom: 10px;
-
       width: 360px;
       float: left;
     }
   }
   div {
+    &.comment {
+      >p {
+        color: $green;
+      }
+    }
     >p {
       font-family: "FranklinGothicBook";
       color: $yellow;
@@ -267,39 +387,53 @@
       } // end li;
     } // end ul
   } // end div
-  ul.info {
-    margin: 40px 0 0 10px;
-    >li {
-      font-size: 25px;
 
-      >label {
-        width: 210px;
-        display: inline-block;
-        color: $yellow;
+  ul {
+    &.info {
+      margin: 50px 0 0 10px;
+
+      >li {
+        font-size: 25px;
+
+        >label {
+          width: 210px;
+          display: inline-block;
+          color: $yellow;
+        }
+        >span {
+          color: $yellow;
+          font-weight: normal;
+        }
+      } // end li
+    } // end info
+  } // end ul
+
+  &.no-spacing {
+    padding: 0;
+    margin: 0;
+  }
+
+  .rest-info {
+    padding: 12px 20px 20px 20px;
+
+    .favor, .optional {
+      width: 49%;
+    }
+
+    ul {
+      width: 100%;
+
+      >li {
+        input {
+          width: 180px;
+          height: 24px;
+          line-height: 24px;
+          border-color: $lighter3-grey;
+        }
       }
-      >span {
-        color: $yellow;
-        font-weight: normal;
-      }
-    } // end li
-  } // ul.info
+    } // end ul
+  } // end rest-info
 } // end fragment
-
-h3 {
-  font-family: "FranklinGothicBook";
-  color: $red;
-  margin-top: 6px;
-}
-.sub-title {
-  font-size: 20px;
-  color: $yellow;
-}
-.large-width {
-  width: 398px !important;
-}
-.green-bg {
-  background-color: $light-green;
-}
 
 .filter {
   >span {
@@ -316,7 +450,7 @@ h3 {
     color: $yellow;
     font-size: 17px;
   }
-}
+} // end filter
 
 .data {
   margin: 20px 0 0 0;
@@ -358,8 +492,523 @@ h3 {
   height: 160px;
   border-radius: 90px;
   overflow: hidden;
-  margin: 12px 20px 20px 12px;
+  margin: 20px;
+} // end photo-area
 
+.info-list {
+  margin-top: 12px;
+  width: 49%;
+  float: left;
+
+  >li {
+    margin: 6px 0;
+
+    >label {
+      width: 166px !important;
+    }
+    >span {
+      color: $black !important;
+    }
+    &.email {
+      span {
+        display: block;
+        margin-left: 160px;
+        line-height: 28px;
+
+        &.inline-element {
+          display: inline-block;
+          margin: 0;
+        }
+      }
+    }
+  } // end li
+} // end info-list
+
+.pic-list {
+  >li {
+    border: 1px solid $yellow;
+    width: 240px;
+    padding: 8px 8px 20px 8px;
+    text-align: center;
+    float: left;
+    margin: 0 0 16px 8px;
+
+    &.first-child {
+      margin-left: 0 !important;
+    }
+
+    >h4 {
+      text-transform: capitalize;
+      color: $lighter4-grey;
+      padding: 8px 0;
+    }
+    >a {
+      color: $yellow;
+      text-decoration: underline;
+    }
+    &:hover {
+      background-color: $lighter3-yellow;
+    }
+  } // end li
+
+  &.event {
+    margin: 20px 0 0 0;
+
+    >li {
+      width: 252px;
+      height: 246px;
+      padding: 8px 4px 10px 4px;
+      border: none;
+      background-color: $lighter-grey;
+      margin: 0 0 16px 5px;
+      text-align: left;
+
+      img {
+         border: 1px solid $white;
+      }
+      >p {
+        line-height: 24px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+} // end pic-list
+
+.detail-area {
+  margin-bottom: 16px;
+
+  >div {
+    &.dependent {
+      width: 456px;
+    }
+
+    &.event {
+        width: 364px;
+
+      .fragment {
+        padding: 10px;
+
+        p {
+          padding: 4px 0;
+        }
+      } // end fragment
+      button {
+        margin: 10px 0 0 0;
+        width: 98%;
+      }
+    } // end event
+
+    &.private-coach {
+      width: 390px;
+
+      .fragment {
+        padding: 10px;
+
+        &.light-grey-bg {
+          background-color: $lighter-grey;
+          margin-bottom: 1px;
+        }
+
+        .txt {
+          color: $light-grey;
+          line-height: 20px;
+          margin: 4px 0 0 0;
+        }
+        h3 {
+          margin-top: 10px;
+        }
+      }
+    } // end private-coach
+
+    .form-field {
+      >li {
+        color: $yellow;
+      }
+      label {
+        width: 240px;
+        font-size: 17px;
+      }
+      input {
+        font-size: 20px;
+        color: $yellow;
+        margin-left: 8px;
+      }
+    } // end form-field
+  }
+  button {
+    margin-right: 0 !important;
+  }
+} // end detail-area
+
+ul.info-detail {
+  font-family: "FranklinGothicBook";
+  border-top: 1px solid $white;
+  font-size: 17px;
+
+  &.mid-font {
+    font-size: 17px;
+  }
+  &.first-child {
+    border: none;
+  }
+  &.event {
+    border: none;
+
+    >li {
+      line-height: 28px;
+      text-indent: 6px;
+
+      label {
+        width: 38%;
+        text-transform: uppercase;
+        font-family: "constantia";
+        color: $light-grey;
+      }
+    }
+  } // end event
+
+  &.info1 {
+    margin: 4px 0 20px 0;
+
+    >li {
+      line-height: 28px;
+
+      >label {
+        width: 18%;
+        text-transform: uppercase;
+        color: $light-grey;
+      }
+    }
+  }
+
+  >li {
+    font-family: "FranklinGothicBook";
+    padding: 2px 0;
+
+    >label {
+      font-family: "FranklinGothicBook";
+      width: 174px;
+      display: inline-block;
+    }
+
+    &.green {
+      >label, >span {
+       color: $green !important;
+      }
+    } // end green
+  } // end li
+
+  &.grey {
+    >li {
+      >label {
+        color: $light-grey;
+      }
+    }
+
+    &.yellow {
+      >span {
+        color: $yellow;
+      }
+    }
+  }
+  &.yellow {
+    >li {
+      >label {
+        color: $yellow;
+      }
+    }
+    &.grey {
+      >li {
+        >span {
+          color: $light-grey;
+        }
+      }
+    }
+  }
+}
+
+.calendar {
+  margin: 20px 0;
+
+  >li {
+    float: left;
+    border: 8px solid $white;
+    margin-right: 16px;
+
+    >a {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      border: 1px solid $light-grey;
+      width: 82px;
+      height: 82px;
+      text-align: center;
+      background-color: $white;
+
+      .month {
+        height: 26px;
+        color: $white;
+        background-color: $dark-red;
+      }
+    }
+
+    &.active {
+      border: 8px solid $lighter-grey;
+    }
+  }
+}
+
+.date {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border: 1px solid $light-grey;
+  width: 82px;
+  height: 82px;
+  text-align: center;
+
+  .month {
+    height: 26px;
+    line-height: 26px;
+    color: $white;
+    background-color: $dark-red;
+  }
+} // end date
+
+.score-area {
+  margin: 20px 0 0 0;
+
+  >label {
+    float: left;
+    margin: 14px 10px;
+  }
+  >span {
+    font-size: 40px;
+    color: $red;
+    padding-top: 30px;
+  }
+}
+
+.payments {
+  margin: 10px 0;
+
+  li {
+    line-height: 36px;
+    text-indent: 10px;
+
+    label {
+      width: 38%;
+      color: $light-grey;
+      text-transform: uppercase;
+      display: inline-block;
+
+      &.black {
+        color: $lighter-black;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  >li {
+    line-height: 36px;
+
+    &:first-child {
+      border-bottom: 1px solid $light-grey;
+    }
+    &.last-child {
+      border-top: 1px solid $light-grey;
+    }
+  }
+}
+
+.record-list {
+  margin: 0;
+
+  >li {
+    background-color: $lighter2-grey;
+    padding: 10px;
+    margin: 0 0 12px 0;
+    border: none;
+    float: none;
+
+    >div {
+      float: left;
+      width: 648px;
+      margin-left: 30px;
+
+      h3 {
+        margin: 0;
+      }
+      p {
+        color: $light-grey;
+      }
+    } // end div
+
+    >ul {
+      width: 660px;
+      margin-left: 24px;
+
+      >li {
+        line-height: 32px;
+        border-bottom: 1px solid $white;
+
+        >h3 {
+          width: 278px;
+        }
+        i{
+          margin-right: 10px;
+        }
+      } // end li
+    } // end ul
+  } // end li
+} // end record-list
+
+.log-in {
+    position: relative;
+    margin: 60px 20px 0 0;
+
+    .dropdown {
+      position: absolute;
+      z-index: 100;
+      left: -50px;
+      top: 34px;
+  } // end dropdown
+  .sm-bottom {
+    margin-left: 10px;
+  }
+}
+.dropdown {
+  width: 184px;
+  height: 180px;
+  border-top: 20px solid $red;
+  background-color: $white;
+  box-shadow: 0 2px 8px $light-grey;
+
+  .photo-area {
+    width: 70px;
+    height: 70px;
+    margin: 10px auto;
+    border-radius: 50px;
+
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50px;
+    }
+  } // end photo-area
+
+  >ul {
+    >li {
+      border-top: 1px solid $yellow;
+      line-height: 38px;
+
+      a {
+        color: $yellow;
+        font-size: 18px;
+        font-family: "constantia";
+        text-transform: uppercase;
+      }
+
+      &:first-child {
+        border: none;
+      }
+    }
+  }
+}
+
+.item-list {
+  >li {
+    width: 50%;
+    float: left;
+    font-family: "franklingothicbook";
+
+    >h2 {
+      font-size: 15px;
+      line-height: 44px;
+    }
+    .detail {
+      width: 250px;
+      padding: 10px;
+      font-size: 17px;
+
+      h5 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: $white;
+  opacity: .5;
+  z-index: 99;
+}
+.overlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 101;
+
+  .close {
+    font-family: "franklingothicbook";
+    font-size: 18px;
+    text-decoration: underline;
+    margin-bottom: 20px;
+
+  }
+
+  .header {
+    background-color: $darker-red;
+    height: 56px;
+    line-height: 56px;
+    color: $white;
+    text-indent: 20px;
+    font-style: italic;
+    font-size: 25px;
+  }
+  .main-body {
+    background-color: $white;
+    box-shadow: 0 2px 8px #878787;
+  }
+  .overlay-content {
+    height: 408px;
+    overflow-y: auto;
+  }
+  .record-list {
+    >li {
+      padding-left: 28px;
+      margin: 0;
+
+      &:nth-child(odd) {
+          background-color: $lighter2-grey;
+      }
+      &:nth-child(even) {
+        background-color: $white;
+      }
+    }
+    .detail {
+      width: 508px;
+
+      h3 {
+        line-height: 38px;
+      }
+      span, a, h3 {
+        font-family: "franklingothicbook";
+        font-size: 17px;
+        color: $yellow;
+      }
+      button {
+        margin-top: 10px;
+      }
+    }
+  }
+  &.mid {
+    width: 740px;
+    height: 464px;
+    margin: -232px 0 0 -370px;
+  }
 
 
 }

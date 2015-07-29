@@ -104,6 +104,10 @@
 @import "../utils/variables";
 
 // buttons
+button[disabled=disabled] {
+  opacity: .5;
+}
+
 .btn {
   font-size: 24px;
   min-height: 30px;
@@ -111,17 +115,48 @@
   text-align: center;
   display: inline-block;
   color: $white;
-  margin: 28px 0;
 
   &.mid-yellow {
     background-color: $yellow;
+    font-size: 24px;
+  }
+  &.sm-yellow {
+    background-color: $yellow;
+    font-size: 15px;
+    width: 76px;
+    height: 26px;
+    line-height: 26px;
+    border-bottom: 2px solid $lighter4-grey;
+  }
+  &.grey {
+    background-color: $light-grey;
+    font-size: 15px;
+  }
+  &.lighter-grey {
+    background-color: $lighter-grey;
+    font-size: 17px;
+    border: 1px solid $lighter5-grey;
+    color: $light-grey;
+    font-family: "FranklinGothicBook";
+  }
+  &.yellow {
+    background-color: $yellow;
+    font-size: 15px;
+  }
+  &.disabled {
+    opacity: .5;
+  }
+  &.green {
+    background-color: $green;
+    font-size: 17px;
+    font-family: "FranklinGothicBook";
   }
   &.border-btn {
     padding: 4px 28px;
     border-bottom: 3px solid $brown;
-    font-size: 18px;
+//    font-size: 18px;
     font-family: "Constantia";
-    margin-left: 32px;
+    margin: 28px 32px 28px 0;
 
     &:first-child {
       margin-left: 0 !important;
@@ -131,6 +166,9 @@
     }
   }
 
+  &.small {
+    width: 90px;
+  }
   &.mid {
     width: 207px;
   }
