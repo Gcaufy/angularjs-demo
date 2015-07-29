@@ -6,6 +6,7 @@ angular.module('AddAuthTokenService',['angular-storage'])
         currentToken = null,
     	currentUserNo = null,
         currentUserName = null,
+        currentCustomerId = null,
         id = null,
     	currentCookie = null,
     	currentKaptcha = null,
@@ -36,6 +37,19 @@ angular.module('AddAuthTokenService',['angular-storage'])
             id = store.get('__id');
         }
         return id ;
+    };
+
+    service.setCustomerId = function(id) {
+        currentCustomerId = id;
+        store.set('__customer', currentCustomerId);
+        return currentCustomerId;
+    };
+
+    service.getCustomerId = function() {
+        if (!currentCustomerId) {
+            currentCustomerId = store.get('__customer');
+        }
+        return currentCustomerId ;
     };
 
 

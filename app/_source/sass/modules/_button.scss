@@ -111,40 +111,19 @@
   text-align: center;
   display: inline-block;
   color: $white;
+  margin: 28px 0;
 
   &.mid-yellow {
     background-color: $yellow;
     font-size: 24px;
   }
-  &.grey {
-    background-color: $light-grey;
-    font-size: 15px;
-  }
-  &.lighter-grey {
-    background-color: $lighter-grey;
-    font-size: 17px;
-    border: 1px solid $lighter5-grey;
-    color: $light-grey;
-    font-family: "FranklinGothicBook";
-  }
-  &.yellow {
-    background-color: $yellow;
-    font-size: 15px;
-  }
-  &.disabled {
-    opacity: .5;
-  }
-  &.green {
-    background-color: $green;
-    font-size: 17px;
-    font-family: "FranklinGothicBook";
-  }
+
   &.border-btn {
     padding: 4px 28px;
     border-bottom: 3px solid $brown;
-//    font-size: 18px;
+    font-size: 18px;
     font-family: "Constantia";
-    margin: 28px 32px 28px 0;
+    margin-left: 32px;
 
     &:first-child {
       margin-left: 0 !important;
@@ -153,6 +132,7 @@
       margin-left: 20px !important;
     }
   }
+  
 
   &.small {
     width: 90px;

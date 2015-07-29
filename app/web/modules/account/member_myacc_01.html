@@ -2,10 +2,10 @@
     <div class="main clearfix">
         <div class="left-sidebar">
             <ul class="list">
-                <li><a href="javascript:;">My Profile<i class="icon icon-light"></i></a></li>
-                <li class="active"><a href="javascript:;">My Account<i class="icon icon-light"></i></a></li>
-                <li><a href="javascript:;">Day pass<i class="icon icon-light"></i></a></li>
-                <li><a href="javascript:;">Dependent Members<i class="icon icon-light"></i></a></li>
+                <li><a href="javascript:;">My Profile</a></li>
+                <li><a href="javascript:;">My Account</a></li>
+                <li><a href="javascript:;">Day pass</a></li>
+                <li><a href="javascript:;">Dependent Members</a></li>
             </ul>
         </div>
         <div class="right-sidebar">
@@ -32,7 +32,7 @@
                     <i class="narrow bottom"></i>
                 </li>
                 <li>
-                    <a href="javascript:;"><i class="icon icon-transaction_gray"></i>Transaction</a>
+                    <a href="javascript:;" ng-click="goTransaction()"><i class="icon icon-transaction_gray"></i>Transaction</a>
                     <i class="narrow bottom"></i>
                 </li>
             </ul>
@@ -40,36 +40,36 @@
             <ul class="info">
                 <li>
                     <label>Service Account:</label>
-                    <span>Individual</span>
+                    <span>{{serviceAcconut}}</span>
                 </li>
                 <li>
                     <label>Service Plan:</label>
-                    <span>10 years</span>
+                    <span>{{servicePlan}}</span>
                 </li>
                 <li>
                     <label>Member Type:</label>
-                    <span>Full Primary</span>
+                    <span>{{memberType}}</span>
                 </li>
                 <li>
                     <label>Effective Date:</label>
-                    <span>2015/10/19</span>
+                    <span>{{effectiveDate}}</span>
                 </li>
                 <li>
                     <label>Expiry Date:</label>
-                    <span>2015/10/19</span>
+                    <span>{{expiryDate}}</span>
                 </li>
                 <li>
                     <label>Credit Limit:</label>
-                    <span>N/A</span>
+                    <span>{{creditLimit}}</span>
                 </li>
                 <li>
                     <label>Day Pass Daily Quota:</label>
-                    <span>10</span>
+                    <span>{{dayPassDailyQuota}}</span>
                 </li>
             </ul>
 
-            <button class="btn mid-yellow border-btn italic uppercase first-child">Reset password</button>
-            <button class="btn mid-yellow border-btn italic uppercase">SEt security question</button>
+            <button class="btn mid-yellow border-btn italic uppercase first-child" ng-click="resetPwd()">Reset password</button>
+            <button class="btn mid-yellow border-btn italic uppercase" ng-click="setQuestion()">Set security question</button>
 
             <div class="fragment account clearfix">
                 <h2 class="uppercase">
@@ -80,47 +80,19 @@
                     <div>
                         <h3>Facilities:</h3>
                         <ul>
-                            <li>
-                                <label>Glofing bay</label>
-                                <span>Booking & Access</span>
-                            </li>
-                            <li>
-                                <label>Tennis</label>
-                                <span>Booking & Access</span>
-                            </li>
-                            <li>
-                                <label>Guest room</label>
-                                <span>Booking & Access</span>
-                            </li>
-                            <li>
-                                <label>Welless Center</label>
-                                <span>Booking & Access</span>
-                            </li>
-                            <li>
-                                <label>Swimming pool</label>
-                                <span>Access only</span>
-                            </li>
+                        	<li ng-repeat="facility in facilities">
+                        		<label>{{facility.facilityTypeCode}}</label>
+                                <span>{{facility.permission}}</span>	
+                        	</li>                       
                         </ul>
                     </div>
                     <div class="right">
                         <h3>Training:</h3>
                         <ul>
-                            <li>
-                                <label>Glofing course</label>
-                                <span>Yes</span>
-                            </li>
-                            <li>
-                                <label>Glof private coaching </label>
-                                <span>Yes</span>
-                            </li>
-                            <li>
-                                <label>Tennis course</label>
-                                <span>Yes</span>
-                            </li>
-                            <li>
-                                <label>Tennis private coaching</label>
-                                <span>Yes</span>
-                            </li>
+                            <li ng-repeat="train in trains">
+                                <label>{{train.rightType}}</label>
+                                <span>{{train.inputValue | accountRightsFilter}}</span>
+                            </li>                           
                         </ul>
                     </div>
                 </block>
@@ -128,14 +100,10 @@
                 <div class="clearfix">
                     <h3>Others:</h3>
                     <ul>
-                        <li>
-                            <label>Events</label>
-                            <span>Yes</span>
-                        </li>
-                        <li>
-                            <label>Dependent creation </label>
-                            <span>Yes</span>
-                        </li>
+	                    <li ng-repeat="other in others">
+	                        <label>{{other.rightType}}</label>
+	                        <span>{{other.inputValue | accountRightsFilter}}</span>
+	                    </li> 
                     </ul>
                 </div>
             </div>

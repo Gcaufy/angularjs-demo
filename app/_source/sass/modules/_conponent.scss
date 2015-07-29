@@ -83,12 +83,6 @@
   font-family: "FranklinGothicBook";
   font-size: 15px;
   color: $red;
-  line-height: 40px;
-
-  >span {
-    text-transform: capitalize;
-  }
-
   >a {
     width: 25px;
     height: 25px;
@@ -107,29 +101,6 @@
 } // end pagination
 
 .tabs {
-  &.course {
-    >li {
-      height: auto;
-      line-height: 24px;
-      background-color: $lighter-yellow;
-      margin-left: 4px;
-      width: 392px;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      >a {
-        text-align: center;
-
-        i {
-          float: none;
-          margin: 10px 0 0 0;
-        }
-      }
-    }
-  }
-
   >li {
     float: left;
     width: 50%;
@@ -140,46 +111,6 @@
     vertical-align: middle;
     background-color: $lighter3-grey;
     margin-bottom: 20px;
-
-    >ul {
-      >li {
-        float: left;
-        margin-left: 1px;
-
-        >a {
-          position: relative;
-          display: inline-block;
-
-          >img {
-            opacity: .6;
-          }
-          >div {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            text-align: center;
-            vertical-align: middle;
-//            background-color: $white;
-//            opacity: .4;
-            z-index: 99;
-          }
-          h1 {
-            font-family: "Constantia";
-            color: $white;
-            text-transform: uppercase;
-            line-height: 124px;
-            margin: 0;
-          }
-        }
-
-        &:first-child {
-          margin-left: 4px;
-        }
-      }
-    }
-
     >a {
       display: inline-block;
       width: 100%;
@@ -273,7 +204,11 @@
       margin: 0 20px 0 10px;
     }
   } // end h2
-
+//  >h3 {
+//    font-family: "FranklinGothicBook";
+//    color: $red;
+//    margin-top: 6px;
+//  }
   &.account {
     div {
       background-color: $white;
@@ -284,11 +219,6 @@
     }
   }
   div {
-    &.comment {
-      >p {
-        color: $green;
-      }
-    }
     >p {
       font-family: "FranklinGothicBook";
       color: $yellow;
@@ -333,52 +263,39 @@
     } // end ul
   } // end div
 
-  ul {
-    &.info {
-      margin: 50px 0 0 10px;
+  ul.info {
+    margin: 40px 0 0 10px;
+    >li {
+      font-size: 25px;
 
-      >li {
-        font-size: 25px;
-
-        >label {
-          width: 210px;
-          display: inline-block;
-          color: $yellow;
-        }
-        >span {
-          color: $yellow;
-          font-weight: normal;
-        }
-      } // end li
-    } // end info
-  } // end ul
-
-  &.no-spacing {
-    padding: 0;
-    margin: 0;
-  }
-
-  .rest-info {
-    padding: 12px 20px 20px 20px;
-
-    .favor, .optional {
-      width: 49%;
-    }
-
-    ul {
-      width: 100%;
-
-      >li {
-        input {
-          width: 180px;
-          height: 24px;
-          line-height: 24px;
-          border-color: $lighter3-grey;
-        }
+      >label {
+        width: 210px;
+        display: inline-block;
+        color: $yellow;
       }
-    } // end ul
-  } // end rest-info
+      >span {
+        color: $yellow;
+        font-weight: normal;
+      }
+    } // end li
+  } // ul.info
 } // end fragment
+
+h3 {
+  font-family: "FranklinGothicBook";
+  color: $red;
+  margin-top: 6px;
+}
+.sub-title {
+  font-size: 20px;
+  color: $yellow;
+}
+.large-width {
+  width: 398px !important;
+}
+.green-bg {
+  background-color: $light-green;
+}
 
 .filter {
   >span {
@@ -395,7 +312,9 @@
     color: $yellow;
     font-size: 17px;
   }
-} // end filter
+
+}
+
 
 .data {
   margin: 20px 0 0 0;
@@ -437,7 +356,7 @@
   height: 160px;
   border-radius: 90px;
   overflow: hidden;
-  margin: 20px;
+  margin: 12px 20px 20px 12px;
   .input-upload{
     width: 160px;
     height: 160px;
@@ -452,276 +371,4 @@
     height: 160px;
   } //Olivia myProfile image upload
 
-} // end photo-area
-
-.info-list {
-  margin-top: 12px;
-  width: 49%;
-  float: left;
-
-  >li {
-    margin: 6px 0;
-
-    >label {
-      width: 166px !important;
-    }
-    >span {
-      color: $black !important;
-    }
-    &.email {
-      span {
-        display: block;
-        margin-left: 160px;
-        line-height: 28px;
-
-        &.inline-element {
-          display: inline-block;
-          margin: 0;
-        }
-      }
-    }
-  } // end li
-} // end info-list
-
-.pic-list {
-  >li {
-    border: 1px solid $yellow;
-    width: 240px;
-    padding: 8px 8px 20px 8px;
-    text-align: center;
-    float: left;
-    margin: 0 0 16px 8px;
-
-    &.first-child {
-      margin-left: 0 !important;
-    }
-
-    >h4 {
-      text-transform: capitalize;
-      color: $lighter4-grey;
-      padding: 8px 0;
-    }
-    >a {
-      color: $yellow;
-      text-decoration: underline;
-    }
-    &:hover {
-      background-color: $lighter3-yellow;
-    }
-  } // end li
-
-  &.event {
-    margin: 20px 0 0 0;
-
-    >li {
-      width: 252px;
-      height: 246px;
-      padding: 8px 4px 10px 4px;
-      border: none;
-      background-color: $lighter-grey;
-      margin: 0 0 16px 5px;
-      text-align: left;
-
-      img {
-         border: 1px solid $white;
-      }
-      >p {
-        line-height: 24px;
-        padding-bottom: 10px;
-      }
-    }
-  }
-} // end pic-list
-
-.detail-area {
-  margin-bottom: 16px;
-
-  >div {
-    &.dependent {
-      width: 456px;
-    }
-
-    &.event {
-        width: 364px;
-
-      .fragment {
-        padding: 10px;
-
-        p {
-          padding: 4px 0;
-        }
-      } // end fragment
-      button {
-        margin: 10px 0 0 0;
-        width: 98%;
-      }
-    } // end event
-
-    .form-field {
-      >li {
-        color: $yellow;
-      }
-      label {
-        width: 240px;
-        font-size: 17px;
-      }
-      input {
-        font-size: 20px;
-        color: $yellow;
-        margin-left: 8px;
-      }
-    } // end form-field
-  }
-  button {
-    margin-right: 0 !important;
-  }
-} // end detail-area
-
-ul.info-detail {
-  font-family: "FranklinGothicBook";
-  border-top: 1px solid $white;
-  font-size: 17px;
-
-  &.mid-font {
-    font-size: 17px;
-  }
-  &.first-child {
-    border: none;
-  }
-  &.event {
-    border: none;
-
-    >li {
-      line-height: 28px;
-      text-indent: 6px;
-
-      label {
-        width: 38%;
-        text-transform: uppercase;
-        font-family: "constantia";
-        color: $light-grey;
-      }
-    }
-  } // end event
-
-  &.info1 {
-    margin: 4px 0 20px 0;
-
-    >li {
-      line-height: 28px;
-
-      >label {
-        width: 18%;
-        text-transform: uppercase;
-        color: $light-grey;
-      }
-    }
-  }
-
-  >li {
-    font-family: "FranklinGothicBook";
-    padding: 2px 0;
-
-    >label {
-      font-family: "FranklinGothicBook";
-      width: 174px;
-      display: inline-block;
-    }
-
-    &.green {
-      >label, >span {
-       color: $green !important;
-      }
-    } // end green
-  } // end li
-
-  &.grey {
-    >li {
-      >label {
-        color: $light-grey;
-      }
-    }
-
-    &.yellow {
-      >span {
-        color: $yellow;
-      }
-    }
-  }
-  &.yellow {
-    >li {
-      >label {
-        color: $yellow;
-      }
-    }
-    &.grey {
-      >li {
-        >span {
-          color: $light-grey;
-        }
-      }
-    }
-  }
-}
-
-.calendar {
-  margin: 20px 0;
-
-  >li {
-    width: 82px;
-    height: 82px;
-    text-align: center;
-    float: left;
-    border: 8px solid $white;
-    margin-right: 16px;
-
-    >a {
-      width: 100%;
-      height: 100%;
-      display: inline-block;
-      border: 1px solid $light-grey;
-
-      .month {
-        height: 26px;
-        color: $white;
-        background-color: $dark-red;
-      }
-    }
-
-    &.active {
-      border: 8px solid $lighter-grey;
-    }
-  }
-}
-
-.payments {
-  margin: 10px 0;
-
-  li {
-    line-height: 36px;
-    text-indent: 10px;
-
-    label {
-      width: 38%;
-      color: $light-grey;
-      text-transform: uppercase;
-      display: inline-block;
-
-      &.black {
-        color: $lighter-black;
-        text-transform: capitalize;
-      }
-    }
-  }
-
-  >li {
-    line-height: 36px;
-
-    &:first-child {
-      border-bottom: 1px solid $light-grey;
-    }
-    &.last-child {
-      border-top: 1px solid $light-grey;
-    }
-  }
 }

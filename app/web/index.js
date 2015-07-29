@@ -9,8 +9,8 @@ window.webapp = angular.module('webapp', ['ui.router',
     'webapp.dependent',
     'webapp.login',
     'webapp.account',
-    'webapp.profile',
-    'webapp.training'
+    'webapp.profile'
+
 ]);
 
 webapp.config(function($stateProvider, $urlRouterProvider) {
