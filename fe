@@ -53,6 +53,25 @@ function exec_gulp() {
 	gulp
 }
 
+function check_env() {
+	if ! which node >/dev/null 2>&1; then
+		echo -e "$REDCOLOR [!!ERROR!!]: NodeJS need to be installed.$NOCOLOR"
+		return $((0))
+	fi
+	if ! which npm >/dev/null 2>&1; then
+		echo -e "$REDCOLOR [!!ERROR!!]: npm need to be installed.$NOCOLOR"
+		return $((0))
+	fi
+	if ! which gulp >/dev/null 2>&1; then
+		echo -e "$REDCOLOR [!!WARNING!!]: gulp no found, going to install it.$NOCOLOR"
+		npm install -g gulp
+	fi
+	if ! which bower >/dev/null 2>&1; then
+		echo -e "$REDCOLOR [!!WARNING!!]: bower no found, going to install it.$NOCOLOR"
+		npm install -g bower
+	fi
+	return $((1))
+}
 function func_update() {
 	if [[ $1 == "" || $1 == "all" ]]; then
 		exec_template
@@ -74,6 +93,11 @@ function func_live() {
 
 function func_run() {
 	echo -e "$GREENCOLOR Auto build process$NOCOLOR"
+
+	check_env
+	if [[ $? != 1 ]]; then
+		exit;
+	fi
 
 	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep package.json`
 	if [[ $DIFF != "" || ! -d "$DIR/node_modules" ]]; then
@@ -107,7 +131,9 @@ function func_run() {
 }
 
 function func_package() {
-	tar -cvzf "../$PROJECT_NAME.tar.gz" --exclude=.git --exclude=.sass-cache --exclude=node_modules *
+	cd app
+	tar -cvzf "../../$PROJECT_NAME.tar.gz" --exclude=_* --exclude=web/*.js *
+	cd ..
 }
 
 function func_server() {

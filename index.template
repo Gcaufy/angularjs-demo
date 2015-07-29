@@ -114,7 +114,10 @@
 		<script src="vendor/jquery/dist/jquery.min.js"></script>
 		<script src="vendor/angularjs/angular.js"></script>
 		<script src="vendor/angular-route/angular-route.js"></script>
+		<script src="vendor/angular-resource/angular-resource.min.js"></script>
+		<script src="vendor/angular-messages/angular-messages.min.js"></script>
 		<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="vendor/a0-angular-storage/dist/angular-storage.min.js"></script>
 		<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="assets/js/all.0000000.js"></script>
 	</body>
