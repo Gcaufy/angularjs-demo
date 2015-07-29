@@ -16,7 +16,7 @@
 	</head>
 	<body>
         <div class="wrapper">
-        <div class="overlay mid">
+        <div class="overlay mid hide">
             <div class="close txt-center"><a class="yellow bold" href="javascript:;">CLOSE</a> </div>
             <div class="main-body">
                 <div class="header">
@@ -89,7 +89,7 @@
                 <div class="footer"></div>
             </div>
         </div>
-        <div class="mask"></div>
+        <div class="mask hide"></div>
             <header>
                 <div class="lg-content clearfix">
                     <span class="log-in grey txt-right right" href="javascript:;">
