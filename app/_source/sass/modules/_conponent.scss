@@ -438,6 +438,20 @@
   border-radius: 90px;
   overflow: hidden;
   margin: 20px;
+  .input-upload{
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    border-radius: 90px;
+  } //Olivia myProfile image upload
+  .img-upload{
+    width: 160px; 
+    height: 160px;
+  } //Olivia myProfile image upload
+
 } // end photo-area
 
 .info-list {

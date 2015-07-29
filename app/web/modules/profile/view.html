@@ -26,13 +26,15 @@
                 <a href="#">My Profile</a>
                
             </div>
+
+            
             <div class="fragment no-spacing">
                 <div class="clearfix">
                     <div class="photo-area left">
 
                       
                         <div ng-if="customer.portraitPhoto" >
-                            <img style="width: 160px; height: 160px;" ng-src="{{getFileUrl+customer.portraitPhoto}}" gta-broken-image />
+                            <img class="img-upload" ng-src="{{getFileUrl+customer.portraitPhoto}}" gta-broken-image />
                         </div> 
 
                     </div>
@@ -61,7 +63,7 @@
                         </li>
                         <li>
                             <label>Sex:</label>
-                            <span>{{customer.gender}}</span>
+                            <span>{{customer.gender == "M" ? "Male":"Female"}}</span>
                         </li>
                         <li>
                             <label>Mobile phone #:</label>
@@ -101,7 +103,7 @@
                             <li>
                                 <label>Position title:</label>
                                 <span>
-                                    {{customer.customerAdditionInfos[0].customerInput}}
+                                   {{customer.customerAdditionInfos[0].customerInput}}
                                     </span>
                             </li>
                             <li>
@@ -122,7 +124,7 @@
                             </li>
                             <li>
                                 <label>Marriage:</label>
-                                <span>{{customer.customerAdditionInfos[5].customerInput}}</span>
+                                <span>  {{customer.customerAdditionInfos[5].customerInput}} </span>
                             </li>
                         </ul>
                     </div>
@@ -139,7 +141,7 @@
                             </li>
                             <li>
                                 <label>Hobbies/ Sports:</label>
-                                <span>{{customer.customerAdditionInfos[8].customerInput}}</span>
+                                <span> {{customer.customerAdditionInfos[8].customerInput}}</span>
                             </li>
                             <li>
                                 <label>Food Allergy:</label>
@@ -147,13 +149,15 @@
                             </li>
                             <li>
                                 <label>Vegetarian:</label>
-                                <span>{{customer.customerAdditionInfos[10].customerInput}}</span>
+                                <span>  {{customer.customerAdditionInfos[10].customerInput}}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <button class="btn yellow mid border-btn italic uppercase">Edit profile</button>
+           
+
+            <button class="btn yellow mid border-btn italic uppercase" ng-click="checkEditInfoAct()">Edit profile</button>
             <hr />
         </div>
     </div>
