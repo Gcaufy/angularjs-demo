@@ -21,3 +21,4 @@ config/config-local.js
 /app/assets/css/all*.css
 /app/assets/js/all*.js
 /app/assets/img/sprite.*.png
+app/_source/sass/sprite.scss

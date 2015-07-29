@@ -120,6 +120,14 @@ button[disabled=disabled] {
     background-color: $yellow;
     font-size: 24px;
   }
+  &.sm-yellow {
+    background-color: $yellow;
+    font-size: 15px;
+    width: 76px;
+    height: 26px;
+    line-height: 26px;
+    border-bottom: 2px solid $lighter4-grey;
+  }
   &.grey {
     background-color: $light-grey;
     font-size: 15px;
