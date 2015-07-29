@@ -119,6 +119,7 @@ button[disabled=disabled] {
   &.mid-yellow {
     background-color: $yellow;
     font-size: 24px;
+
   }
   &.sm-yellow {
     background-color: $yellow;
@@ -151,6 +152,7 @@ button[disabled=disabled] {
     font-size: 17px;
     font-family: "FranklinGothicBook";
   }
+
   &.border-btn {
     padding: 4px 28px;
     border-bottom: 3px solid $brown;
@@ -165,6 +167,7 @@ button[disabled=disabled] {
       margin-left: 20px !important;
     }
   }
+  
 
   &.small {
     width: 90px;

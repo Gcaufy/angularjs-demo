@@ -83,6 +83,7 @@
   font-family: "FranklinGothicBook";
   font-size: 15px;
   color: $red;
+
   line-height: 40px;
 
   >span {
@@ -199,6 +200,7 @@
     vertical-align: middle;
     background-color: $lighter3-grey;
     margin-bottom: 20px;
+
 
     >ul {
       >li {
@@ -450,7 +452,10 @@
     color: $yellow;
     font-size: 17px;
   }
+
 } // end filter
+
+
 
 .data {
   margin: 20px 0 0 0;
@@ -493,6 +498,19 @@
   border-radius: 90px;
   overflow: hidden;
   margin: 20px;
+  .input-upload{
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    border-radius: 90px;
+  } //Olivia myProfile image upload
+  .img-upload{
+    width: 160px; 
+    height: 160px;
+  } //Olivia myProfile image upload
 } // end photo-area
 
 .info-list {

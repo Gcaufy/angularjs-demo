@@ -8,7 +8,6 @@
                 <li><a href="javascript:;">Dependent Members <i class="icon icon-light"></i></a></li>
             </ul>
         </div>
-        <form name="profileForm" ng-submit="update(customer)">
         <div class="right-sidebar">
             <ul class="nav clearfix">
                 <li><a href="javascript:;">dashboard</a></li>
@@ -28,31 +27,19 @@
                 <span>&gt;</span>
                 <a href="#">edit profile</a>
             </div>
-
-            
             <div class="fragment no-spacing">
                 <div class="clearfix">
                     <div class="photo-area left">
-                        <!-- <img src="assets/img/event_detail_img.png" /> -->
-
-                        
-                        <div ng-if="!customer.portraitPhoto">
-                            <input class="input-upload" type="file" id="fileInput" name="file" onchange="angular.element(this).scope().uploadPortraitPhoto(this)" />
-                        </div>
-                        <div ng-if="customer.portraitPhoto ">
-                            <input class="input-upload" type="file" id="fileInput" name="file" onchange="angular.element(this).scope().uploadPortraitPhoto(this)" />
-                            <img class="img-upload" ng-src="{{getFileUrl+customer.portraitPhoto}}" gta-broken-image />
-                        </div>
-
+                        <img src="assets/img/event_detail_img.png" />
                     </div>
                     <ul class="info left">
                         <li>
                             <label>User Name:</label>
-                            <span>{{customer.surname}} {{customer.givenName}}</span>
+                            <span>Mary Choi</span>
                         </li>
                         <li>
                             <label>Academy ID:</label>
-                            <span>{{customerMember.academyNo}}</span>
+                            <span>8812312</span>
                         </li>
                     </ul>
 
@@ -62,44 +49,44 @@
                     <ul class="info-list clearfix">
                         <li>
                             <label>Date of Birth:</label>
-                            <span>{{customer.dateOfBirth}}</span>
+                            <span>1980/12/25</span>
                         </li>
                         <li>
                             <label>Nationality:</label>
-                            <span>{{customer.nationality}}</span>
+                            <span>Hong Kong</span>
                         </li>
                         <li>
                             <label>Sex:</label>
-                            <span>{{customer.gender == "M" ? "Male":"Female"}}</span>
+                            <span>Female</span>
                         </li>
                         <li>
                             <label>Mobile phone #:</label>
-                            <span>{{customer.phoneMobile}}</span>
+                            <span>+852 7778878</span>
                         </li>
                         <li>
                             <label>Business phone #:</label>
-                            <span>{{customer.phoneBusiness}}</span>
+                            <span>+852 26263839</span>
                         </li>
                         <li>
                             <label>Home phone #:</label>
-                            <span>{{customer.phoneHome}}</span>
+                            <span>+852 45657890</span>
                         </li>
                     </ul>
                     <ul class="info-list clearfix">
                         <li>
                             <label>Email:</label>
-                            <span>{{customer.contactEmail}}</span>
+                            <span>marychoi@gmail.com</span>
                         </li>
                         <li class="email">
                             <label>Postal Address:</label>
-                            <span class="inline-element">{{customer.postalAddress1}}</span>
-                            <span>{{customer.postalAddress2}}</span>
-                            <span>{{customer.postalDistrict}}</span>
+                            <span class="inline-element">123 street, 15/F,</span>
+                            <span>123 street, 15/F,</span>
+                            <span>123 street, 15/F,</span>
                         </li>
 
                         <li>
                             <label>Business Nature:</label>
-                            <span>{{customer.businessNature}}</span>
+                            <span>Marketing</span>
                         </li>
                     </ul>
                 </div>
@@ -109,30 +96,27 @@
                         <ul class="info-list clearfix">
                             <li>
                                 <label>Position title:</label>
-                                <input type="text"
-                                 ng-model="customer.customerAdditionInfos[0].customerInput" />
+                                <input type="text"/>
                             </li>
                             <li>
                                 <label>Highest School:</label>
-                               <input type="text"
-                                 ng-model="customer.customerAdditionInfos[1].customerInput" />
+                                <input type="text"/>
                             </li>
                             <li>
                                 <label>Graduation Year:</label>
-                                <input type="text"  ng-model="customer.customerAdditionInfos[2].customerInput" />
+                                <span>Female</span>
                             </li>
                             <li>
                                 <label>Highest Education:</label>
-                                <input type="text"
-                                 ng-model="customer.customerAdditionInfos[3].customerInput" />
+                                <span>+852 7778878</span>
                             </li>
                             <li>
                                 <label>Vehicle License Plate:</label>
-                               <input type="text" ng-model="customer.customerAdditionInfos[4].customerInput" />
+                                <span>+852 26263839</span>
                             </li>
                             <li>
                                 <label>Marriage:</label>
-                                <input type="text" ng-model="customer.customerAdditionInfos[5].customerInput" />
+                                <span>+852 45657890</span>
                             </li>
                         </ul>
                     </div>
@@ -140,35 +124,37 @@
                         <h2 class="uppercase">favor:</h2>
                         <ul class="info-list clearfix">
                             <li>
-                                <label>Accommodation type:</label>
-                                <input type="text" ng-model="customer.customerAdditionInfos[6].customerInput" />
+                                <label>Date of Birth:</label>
+                                <span>1980/12/25</span>
                             </li>
                             <li>
-                                <label>Food and Beverage:</label>
-                                <input type="text" ng-model="customer.customerAdditionInfos[7].customerInput" />
+                                <label>Nationality:</label>
+                                <span>Hong Kong</span>
                             </li>
                             <li>
-                                <label>Hobbies/ Sports:</label>
-                                <input type="text" ng-model="customer.customerAdditionInfos[8].customerInput" />
+                                <label>Sex:</label>
+                                <span>Female</span>
                             </li>
                             <li>
-                                <label>Food Allergy:</label>
-                                <input type="text"  ng-model="customer.customerAdditionInfos[9].customerInput" />
+                                <label>Mobile phone #:</label>
+                                <span>+852 7778878</span>
                             </li>
                             <li>
-                                <label>Vegetarian:</label>
-                                <input type="text" ng-model="customer.customerAdditionInfos[10].customerInput" />
+                                <label>Business phone #:</label>
+                                <span>+852 26263839</span>
+                            </li>
+                            <li>
+                                <label>Home phone #:</label>
+                                <span>+852 45657890</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
             </div>
-             
-            <button class="btn grey mid border-btn italic uppercase" ng-click="reset()">Back</button>
-            <button type="submit" class="btn yellow mid border-btn italic uppercase" >Save profile</button>
+            <button class="btn grey mid border-btn italic uppercase">Back</button>
+            <button class="btn yellow mid border-btn italic uppercase">Save profile</button>
             <hr />
         </div>
-        </form>
     </div>
 </section>

@@ -10,6 +10,7 @@
 		<link rel="shortcut icon" href="app/assets/images/favicon.ico" type="image/x-icon" />
 		<link href="vendor/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet" />
 		<link href="assets/css/all.0000000.css" media="screen, projection" rel="stylesheet" type="text/css" />
+		<link href="vendor/alertify-js/build/css/alertify.min.css" rel="stylesheet" />
 		<script>
 			window.BUILD_HTML_HASH = '0000000';
 		</script>
@@ -119,6 +120,7 @@
 		<script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
 		<script src="vendor/a0-angular-storage/dist/angular-storage.min.js"></script>
 		<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="vendor/alertify-js/build/alertify.min.js"></script>
 		<script src="assets/js/all.0000000.js"></script>
 	</body>
 </html>
