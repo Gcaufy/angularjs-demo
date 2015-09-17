@@ -12,6 +12,7 @@
     "eqnull": true,     // true: Requires all functions run in ES5 Strict Mode
     "es3": true,    // {int} Max number of formal params allowed per function
     "node": true,    // {int} Max depth of nested blocks (within functions)
+    "loopfunc": true,  // Aviod "Don't make functions within a loop."
     "predef": ["angular", "$", "jQuery"],
     "-W117": true    // {int} Max number statements per function
 }
