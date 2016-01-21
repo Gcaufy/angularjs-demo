@@ -66,10 +66,10 @@ function check_env() {
 		echo -e "$REDCOLOR [!!WARNING!!]: gulp no found, going to install it.$NOCOLOR"
 		npm install -g gulp
 	fi
-	if ! which bower >/dev/null 2>&1; then
-		echo -e "$REDCOLOR [!!WARNING!!]: bower no found, going to install it.$NOCOLOR"
-		npm install -g bower
-	fi
+#	if ! which bower >/dev/null 2>&1; then
+#		echo -e "$REDCOLOR [!!WARNING!!]: bower no found, going to install it.$NOCOLOR"
+#		npm install -g bower
+#	fi
 	return $((1))
 }
 function func_update() {
@@ -99,17 +99,17 @@ function func_run() {
 		exit;
 	fi
 
-	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep package.json`
+	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD >/dev/null 2>&1 | grep package.json`
 	if [[ $DIFF != "" || ! -d "$DIR/node_modules" ]]; then
 		exec_npm
 	fi
 
-	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep bower.json`
+	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD >/dev/null 2>&1 | grep bower.json`
 	if [[ $DIFF != "" || ! -d "$DIR/app/vendor" ]]; then
 		exec_bower
 	fi
 
-	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep .githooks`
+	DIFF=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD >/dev/null 2>&1 | grep .githooks`
 	if [[ $DIFF != "" || ! -f "$DIR/.git/hooks/pre-commit" ]]; then
 		exec_hooks
 	fi
@@ -118,7 +118,7 @@ function func_run() {
 		exec_config
 	fi
 
-	CHANGES=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep index.template`
+	CHANGES=`git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD >/dev/null 2>&1 | grep index.template`
 
 	if [[ ! -f "$DIR/app/index.html" || $CHANGES != "" ]]; then
 		exec_template

@@ -29,6 +29,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.0.4",
+    "gulp-sequence": "^0.4.4",
     "gulp-uglify": "^1.2.0",
     "gulp.spritesmith": "^3.8.2",
     "http-server": "^0.8.0",
